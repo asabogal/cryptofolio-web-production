@@ -4,21 +4,36 @@ import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import Signup from './components/registrations/Signup'
+import Login from './components/registrations/Login'
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {  };
+    this.state = { 
+      loggedInStatus: 'NOT LOGGED IN',
+      user: {}
+     };
   }
   render() {
     return (
       <div>
         <BrowserRouter>
           <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route exact path='/dashboard' component={Dashboard}/>
+            <Route 
+              exact path='/' 
+              render={props => (
+              <Home {...props} loggedInStatus={this.state.loggedInStatus}/>
+              )}
+            />
+            <Route 
+              exact path='/' 
+              render={props => (
+              <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
+              )}
+            />
             <Route exact path='/settings' component={Settings}/>
             <Route exact path='/signup' component={Signup}/>
+            <Route exact path='/login' component={Login}/>
           </Switch>
         </BrowserRouter>
       </div>
