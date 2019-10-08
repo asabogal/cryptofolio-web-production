@@ -9,9 +9,8 @@ class Signup extends Component {
       email: '',
       password: '',
       password_confirmation: '',
+      errors: ''
      };
-
-     this.errors = ''
   }
 
   handleChange = (event) => {
@@ -23,12 +22,40 @@ class Signup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const {username, email, password, password_confirmation} = this.state
+    let user = {
+      username: username,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+    }
 
-    let user = this.state
     axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
-    .then(response => console.log('api user:', response))
+    .then(response => {
+      console.log(response)
+      if (response.data.status === 'created') {
+        this.handleAuth(response.data)
+      } else {
+        this.setState({
+          errors: response.data.errors
+        })
+      }
+    })
     .catch(error => console.log('api errors:', error))
   };
+
+  handleAuth = () => {
+    this.props.history.push('/dashboard') //redirect to dashboard
+  }
+
+  handleErrors = () => {
+    return (
+      <ul>{this.state.errors.map((error) => {
+        return <li key={error}>{error}</li>
+      })}</ul> 
+    )
+  }
+  
 
   render() {
     const {username, email, password, password_confirmation} = this.state
@@ -73,8 +100,14 @@ class Signup extends Component {
           />
       
         </form>
+        <div style={styles.errors}>
+          {
+            this.state.errors ? this.handleErrors() : null
+          }
+        </div>
       </div>
     );
+
   }
 }
 
@@ -105,5 +138,9 @@ const styles = {
       color: 'white',
       fontSize: '15px'
     }
+  },
+  errors: {
+    width: '300px',
+    color: 'red'
   }
 }
