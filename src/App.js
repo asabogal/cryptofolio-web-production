@@ -14,6 +14,14 @@ class App extends Component {
       user: {}
      };
   }
+
+  handleLogin = (data) => {
+    this.setState({
+      loggedInStatus: 'LOGGED IN',
+      user: data.user
+    })
+  }
+
   render() {
     return (
       <div>
@@ -26,13 +34,18 @@ class App extends Component {
               )}
             />
             <Route 
-              exact path='/' 
+              exact path='/dashboard' 
               render={props => (
               <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
               )}
             />
             <Route exact path='/settings' component={Settings}/>
-            <Route exact path='/signup' component={Signup}/>
+            <Route 
+              exact path='/signup' 
+              render={props => (
+              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus}/>
+              )}
+            />
             <Route exact path='/login' component={Login}/>
           </Switch>
         </BrowserRouter>

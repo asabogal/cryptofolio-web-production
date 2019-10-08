@@ -34,6 +34,7 @@ class Signup extends Component {
     .then(response => {
       console.log(response)
       if (response.data.status === 'created') {
+        this.props.handleLogin(response.data)
         this.handleAuth(response.data)
       } else {
         this.setState({
