@@ -31,8 +31,9 @@ class Login extends Component {
     
     axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
     .then(response => {
-      if (response.status === "loggedIn") {
-        this.handleAuth(response)
+      if (response.data.logged_in) {
+        this.props.handleLogin(response.data)
+        this.handleAuth()
       } else {
         this.setState({
           errors: response.data.errors
@@ -95,7 +96,7 @@ class Login extends Component {
 
         <div style={styles.errors}>
           {
-            this.state.errors ? handleErrors() : null
+            this.state.errors ? this.handleErrors() : null
           }
         </div>
       </div>
