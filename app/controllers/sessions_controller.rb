@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(session_params[:user][:password])
       login!
       render json: { 
-        status: :loggedIn
+        status: :loggedIn,
         logged_in: true,
         user: @user
       }
