@@ -1,24 +1,22 @@
 class SessionsController < ApplicationController
 
   def create
-    @user = User.find_by(email: session_params[:user][:email])
+    @user = User.find_by(email: session_params[:email])
   
-    if @user && @user.authenticate(session_params[:user][:password])
+    if @user && @user.authenticate(session_params[:password])
       login!
-      render json: { 
-        status: :loggedIn,
+      render json: {
         logged_in: true,
         user: @user
       }
     else
       render json: { 
         status: 401,
-        errors: @user.errors.full_messages
+        errors: ['no such user', 'verify credentials']
       }
     end
   end
-
-
+  
   private
 
   def session_params
