@@ -8,7 +8,8 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        DASHBOARD
+        <h1>DASHBOARD</h1>
+        <h2>{this.props.loggedInStatus}</h2>
       </div>
     );
   }

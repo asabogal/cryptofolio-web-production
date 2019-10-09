@@ -8,7 +8,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        HOME
+        <h1>HOME</h1>
+        <h2>{this.props.loggedInStatus}</h2>
       </div>
     );
   }
