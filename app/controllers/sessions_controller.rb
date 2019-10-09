@@ -16,7 +16,15 @@ class SessionsController < ApplicationController
       }
     end
   end
-  
+
+  def is_logged_in?
+    logged_in?
+  end
+
+  def destroy
+    logout!
+  end
+
   private
 
   def session_params
