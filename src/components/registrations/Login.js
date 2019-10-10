@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class Login extends Component {
   constructor(props) {
@@ -49,12 +50,18 @@ class Login extends Component {
 
   handleErrors = () => {
     return (
-      <ul>
+      <div style={styles.errors.container}>
+        <ul>
         {this.state.errors.map(error => {
         return <li key={error}>{error}</li>
-      })
-      }</ul>
- 
+        })
+        }</ul>
+      
+      <button style={styles.errors.button}>
+        <Link to='/signup' style={{textDecoration: 'none', color: 'white'}}>Signup</Link>
+      </button>
+        
+      </div>
     )
   }
 
@@ -94,7 +101,7 @@ class Login extends Component {
       
         </form>
 
-        <div style={styles.errors}>
+        <div style={styles.errors.text}>
           {
             this.state.errors ? this.handleErrors() : null
           }
@@ -133,7 +140,20 @@ const styles = {
     }
   },
   errors: {
-    width: '300px',
-    color: 'red'
+    container: {
+      display: 'grid',
+      width: '500px',
+      gridTemplateColumns: '1fr 1fr'
+    },
+    text: {
+      color: 'red'
+    },
+    button: {
+      height: '25px',
+      backgroundColor: '#80CCED',
+      color: 'white',
+      fontSize: '15px',
+      alignSelf: 'center'
+    }
   }
 }
