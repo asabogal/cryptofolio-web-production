@@ -51,9 +51,11 @@ class Signup extends Component {
 
   handleErrors = () => {
     return (
-      <ul>{this.state.errors.map((error) => {
-        return <li key={error}>{error}</li>
-      })}</ul> 
+      <div style={styles.errors.container}>
+        <ul>{this.state.errors.map((error) => {
+          return <li style={{padding: '2px'}} key={error}>{error}</li>
+        })}</ul> 
+      </div>
     )
   }
   
@@ -61,7 +63,7 @@ class Signup extends Component {
   render() {
     const {username, email, password, password_confirmation} = this.state
     return (
-      <div style={styles.container}>
+      <div style={styles.form.container}>
         <h1 style={{textAlign: "center"}}>Sign Up</h1>
         <form style={styles.form.body} onSubmit={this.handleSubmit}>
           <input style={styles.form.input}
@@ -94,14 +96,16 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
         
-          <input 
+          <button 
             style={styles.form.button}
             placeholder="submit"
             type="submit"
-          />
+          >
+            Sign Up
+          </button>
       
         </form>
-        <div style={styles.errors}>
+        <div style={styles.errors.text}>
           {
             this.state.errors ? this.handleErrors() : null
           }
@@ -115,33 +119,53 @@ class Signup extends Component {
 export default Signup;
 
 const styles = {
-  container: {
-    display: 'grid',
-    justifyContent: 'center',
-    alignContent: 'center',
-    marginTop: '50px'
-  },
   form: {
+    container: {
+      display: 'grid',
+      justifyContent: 'center',
+      alignContent: 'center',
+      marginTop: '50px'
+    },
     body: {
-      width: '500px',
+      width: '300px',
       display: 'grid',
       gridGap: '10px'
     },
     input: {
-      border: '1px solid black',
+      border: '1px thin black',
       height: '20px',
       fontSize: '1rem',
       padding: '5px'
     },
     button: {
-      height: '30px',
-      backgroundColor: '#337ab7',
+      height: '35px',
+      backgroundColor: '#7F97A4',
       color: 'white',
       fontSize: '15px'
+    },
+    signup: {
+      fontSize: '15px',
+      textAlign: 'right',
+      display: 'inline-block'
     }
   },
   errors: {
-    width: '300px',
-    color: 'red'
+    container: {
+      marginTop: '30px',
+      display: 'grid',
+      width: '300px',
+      boder: '1px thin red',
+      backgroundColor: '#FCF1F1'
+    },
+    text: {
+      color: 'red'
+    },
+    button: {
+      height: '25px',
+      backgroundColor: '#80CCED',
+      color: 'white',
+      fontSize: '15px',
+      alignSelf: 'center'
+    }
   }
 }
