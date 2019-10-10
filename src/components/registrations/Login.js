@@ -53,14 +53,9 @@ class Login extends Component {
       <div style={styles.errors.container}>
         <ul>
         {this.state.errors.map(error => {
-        return <li key={error}>{error}</li>
+        return <li style={{padding: '2px'}} key={error}>{error}</li>
         })
         }</ul>
-      
-      <button style={styles.errors.button}>
-        <Link to='/signup' style={{textDecoration: 'none', color: 'white'}}>Signup</Link>
-      </button>
-        
       </div>
     )
   }
@@ -68,8 +63,8 @@ class Login extends Component {
   render() {
     const {username, email, password} = this.state
     return (
-      <div style={styles.container}>
-        <h1 style={{textAlign: "center"}}>Login</h1>
+      <div style={styles.form.container}>
+        <h1 style={{textAlign: "center"}}>Log In</h1>
         <form style={styles.form.body} onSubmit={this.handleSubmit}>
           <input style={styles.form.input}
             placeholder="username"
@@ -93,13 +88,20 @@ class Login extends Component {
             onChange={this.handleChange}
           />
 
-          <input 
-            style={styles.form.button}
-            placeholder="submit"
-            type="submit"
-          />
+          <button 
+           style={styles.form.button}
+           placeholder="submit"
+           type="submit"
+          >
+            Log In
+          </button>
+
+          <div style={styles.form.signup}>
+            or <Link to='/signup' style={{color: '#7F97A4',}}>sign up</Link>
+          </div>
+          
+          </form>
       
-        </form>
 
         <div style={styles.errors.text}>
           {
@@ -114,36 +116,44 @@ class Login extends Component {
 export default Login;
 
 const styles = {
-  container: {
-    display: 'grid',
-    justifyContent: 'center',
-    alignContent: 'center',
-    marginTop: '50px'
-  },
+
   form: {
+    container: {
+      display: 'grid',
+      justifyContent: 'center',
+      alignContent: 'center',
+      marginTop: '50px'
+    },
     body: {
-      width: '500px',
+      width: '300px',
       display: 'grid',
       gridGap: '10px'
     },
     input: {
-      border: '1px solid black',
+      border: '1px thin black',
       height: '20px',
       fontSize: '1rem',
       padding: '5px'
     },
     button: {
-      height: '30px',
-      backgroundColor: '#337ab7',
+      height: '35px',
+      backgroundColor: '#7F97A4',
       color: 'white',
       fontSize: '15px'
+    },
+    signup: {
+      fontSize: '15px',
+      textAlign: 'right',
+      display: 'inline-block'
     }
   },
   errors: {
     container: {
+      marginTop: '30px',
       display: 'grid',
-      width: '500px',
-      gridTemplateColumns: '1fr 1fr'
+      width: '300px',
+      boder: '1px thin red',
+      backgroundColor: '#FCF1F1'
     },
     text: {
       color: 'red'
