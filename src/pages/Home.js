@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Jumbotron from '../components/home/Jumbotron'
 import axios from 'axios'
 import './style.css'
 
@@ -18,7 +17,6 @@ class Home extends Component {
   render() {
     return (
       <div className='page-container'>
-        <Jumbotron/>
         <h1>HOME</h1>
         <h2>{this.props.loggedInStatus}</h2>
         <button onClick={this.handleLogout}>LOGOUT</button>
