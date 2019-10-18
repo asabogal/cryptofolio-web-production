@@ -1,0 +1,19 @@
+.jumbotron-container {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: #7F97A4;
+  width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.jumbotron-container h1 {
+  font-size: 100px;
+  font-weight: 200;
+}
+
+.register-links {
+  display: inline-block;
+  text-align: center;
+}
