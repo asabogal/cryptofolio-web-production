@@ -24,7 +24,7 @@ class Home extends Component {
         {
           this.props.loggedInStatus ? <button onClick={this.handleLogout}>LOGOUT</button> : null
         }
-        
+
       </Container>
     );
   }
