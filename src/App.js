@@ -11,15 +11,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      loggedInStatus: 'NOT LOGGED IN',
+      isLoggedIn: false,
       user: {}
      };
   }
   componentDidMount() {
-    this.logginStatus()
+    this.loginStatus()
   }
 
-  logginStatus = () => {
+  loginStatus = () => {
     axios.get('http://localhost:3001/logged_in', {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
@@ -33,14 +33,14 @@ class App extends Component {
 
   handleLogin = (data) => {
     this.setState({
-      loggedInStatus: 'LOGGED IN',
+      isLoggedIn: false,
       user: data.user
     })
   }
 
   handleLogout = () => {
     this.setState({
-    loggedInStatus: 'NOT LOGGED IN',
+    isLoggedIn: false,
     user: {}
     })
   }
@@ -54,26 +54,26 @@ class App extends Component {
             <Route 
               exact path='/' 
               render={props => (
-              <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus}/>
+              <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
             <Route 
               exact path='/dashboard' 
               render={props => (
-              <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
+              <Dashboard {...props} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
             <Route exact path='/settings' component={Settings}/>
             <Route 
               exact path='/signup' 
               render={props => (
-              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus}/>
+              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
             <Route 
               exact path='/login' 
               render={props => (
-              <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus}/>
+              <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
           </Switch>

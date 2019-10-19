@@ -9,7 +9,10 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>DASHBOARD</h1>
-        <h2>{this.props.loggedInStatus}</h2>
+        {
+          this.props.loggedInStatus ? <h2>Logged In</h2> : <h2>Not Logged In</h2>
+        }
+       
       </div>
     );
   }
