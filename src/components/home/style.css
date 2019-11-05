@@ -1,0 +1,11 @@
+.home-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  padding: 100px;
+}
+
+.home-logo {
+  width: 100%;
+  height: 100%;
+}
