@@ -1,15 +1,27 @@
 import React from 'react';
 import Info from './Info'
 import Logo from './Logo'
-import './style.css'
+import styled from 'styled-components'
 
 const Content = () => {
   return (
-    <div className='home-content'>
+    <Container>
       <Info/>
       <Logo/>
-    </div>
+    </Container>
   );
 };
 
 export default Content;
+
+// Styled
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 15px;
+  height: 350px;
+  width: 80vw;
+  padding: 100px;
+`;
