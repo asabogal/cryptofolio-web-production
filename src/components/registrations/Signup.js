@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {FormContainer, ErrorsContainer} from './styled'
 
 class Signup extends Component {
   constructor(props) {
@@ -51,11 +52,11 @@ class Signup extends Component {
 
   handleErrors = () => {
     return (
-      <div style={styles.errors.container}>
+      <ErrorsContainer>
         <ul>{this.state.errors.map((error) => {
           return <li style={{padding: '2px'}} key={error}>{error}</li>
         })}</ul> 
-      </div>
+      </ErrorsContainer>
     )
   }
   
@@ -63,7 +64,7 @@ class Signup extends Component {
   render() {
     const {username, email, password, password_confirmation} = this.state
     return (
-      <div style={styles.form.container}>
+      <FormContainer>
         <h1 style={{textAlign: "center"}}>Sign Up</h1>
         <form style={styles.form.body} onSubmit={this.handleSubmit}>
           <input style={styles.form.input}
@@ -73,14 +74,14 @@ class Signup extends Component {
             value={username}
             onChange={this.handleChange}
           />
-          <input style={styles.form.input}
+          <input
             placeholder="email"
             type="text"
             name="email"
             value={email}
             onChange={this.handleChange}
           />
-          <input style={styles.form.input}
+          <input 
             placeholder="password"
             type="text"
             name="password"
@@ -88,7 +89,7 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-          <input style={styles.form.input}
+          <input
             placeholder="password confirmation"
             type="text"
             name="password_confirmation"
@@ -97,7 +98,6 @@ class Signup extends Component {
           />
         
           <button 
-            style={styles.form.button}
             placeholder="submit"
             type="submit"
           >
@@ -105,12 +105,12 @@ class Signup extends Component {
           </button>
       
         </form>
-        <div style={styles.errors.text}>
+        <div>
           {
             this.state.errors ? this.handleErrors() : null
           }
         </div>
-      </div>
+      </FormContainer>
     );
 
   }
