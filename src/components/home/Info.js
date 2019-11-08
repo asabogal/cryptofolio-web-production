@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from '../utils/Buttons'
 import styled from 'styled-components'
 
 const Info = () => {
@@ -17,6 +18,14 @@ const Info = () => {
         <div>
           <Button>Sign Up</Button>
           <Button>Log In</Button>
+          <Button 
+          style={{marginTop: '20px'}} 
+          width='260px'
+          height='35px'
+          font='15px'
+          >
+            Demo
+          </Button>
         </div>
       </div>
     </Container>
@@ -28,22 +37,9 @@ export default Info;
 //Styled
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 60% 30%;
   grid-gap: 30px;
   p {
     padding-left: 20px;
-  }
-`;
-
-const Button = styled.button`
-  background-color: #7F97A4;
-  color: white;
-  font-size: 20px;
-  height: 50px;
-  width: 120px;
-  margin-right: 20px;
-  cursor: pointer;
-  &:hover {
-    background-color: #677075;
   }
 `;
