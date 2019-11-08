@@ -18,10 +18,10 @@ export default Content;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
   align-items: center;
   justify-items: center;
   grid-gap: 15px;
-  height: 350px;
   width: 80vw;
   padding: 100px;
 `;

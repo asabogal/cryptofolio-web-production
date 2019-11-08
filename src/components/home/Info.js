@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 const Info = () => {
   return (
-    <div>
+    <Container>
       <div>
-        <h1>Cryptocurrency Portfolio</h1>
+        <h1>CRYPTOCURRENCY PORTFOLIO</h1>
         <h3>Keep track of your favorite coins </h3>
         <p>Live, 24/7 Data</p>
         <p>User Friendly Interface</p>
@@ -19,20 +19,31 @@ const Info = () => {
           <Button>Log In</Button>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Info;
 
+//Styled
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: 60% 40%;
+  grid-gap: 30px;
+  p {
+    padding-left: 20px;
+  }
+`;
+
 const Button = styled.button`
-  background-color: #13b4c0;
+  background-color: #7F97A4;
   color: white;
   font-size: 20px;
   height: 50px;
   width: 120px;
   margin-right: 20px;
+  cursor: pointer;
   &:hover {
-    background-color: #007af0;
+    background-color: #677075;
   }
 `;

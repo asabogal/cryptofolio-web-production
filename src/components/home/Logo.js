@@ -14,9 +14,11 @@ export default Logo;
 
 // Styled
 const LogoContainer = styled.div`
-  justify-self: center;
+  height: 85%;
+  width: 85%;
   img {
-    height: 100%;
-    width: 100%;
+    padding-top: 40px;
+    height: 90%;
+    width: 90%;
   }
 `;
