@@ -84,14 +84,13 @@ class Login extends Component {
           />
           <input
             placeholder="password"
-            type="text"
+            type="password"
             name="password"
             value={password}
             onChange={this.handleChange}
           />
 
           <button 
-          //  style={styles.form.button}
            placeholder="submit"
            type="submit"
           >

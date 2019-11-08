@@ -66,8 +66,8 @@ class Signup extends Component {
     return (
       <FormContainer>
         <h1 style={{textAlign: "center"}}>Sign Up</h1>
-        <form style={styles.form.body} onSubmit={this.handleSubmit}>
-          <input style={styles.form.input}
+        <form onSubmit={this.handleSubmit}>
+          <input
             placeholder="username"
             type="text"
             name="username"
@@ -83,7 +83,7 @@ class Signup extends Component {
           />
           <input 
             placeholder="password"
-            type="text"
+            type="password"
             name="password"
             value={password}
             onChange={this.handleChange}
@@ -91,7 +91,7 @@ class Signup extends Component {
 
           <input
             placeholder="password confirmation"
-            type="text"
+            type="password"
             name="password_confirmation"
             value={password_confirmation}
             onChange={this.handleChange}
@@ -117,55 +117,3 @@ class Signup extends Component {
 }
 
 export default Signup;
-
-const styles = {
-  form: {
-    container: {
-      display: 'grid',
-      justifyContent: 'center',
-      alignContent: 'center',
-      marginTop: '50px'
-    },
-    body: {
-      width: '300px',
-      display: 'grid',
-      gridGap: '10px'
-    },
-    input: {
-      border: '1px thin black',
-      height: '20px',
-      fontSize: '1rem',
-      padding: '5px'
-    },
-    button: {
-      height: '35px',
-      backgroundColor: '#7F97A4',
-      color: 'white',
-      fontSize: '15px'
-    },
-    signup: {
-      fontSize: '15px',
-      textAlign: 'right',
-      display: 'inline-block'
-    }
-  },
-  errors: {
-    container: {
-      marginTop: '30px',
-      display: 'grid',
-      width: '300px',
-      boder: '1px thin red',
-      backgroundColor: '#FCF1F1'
-    },
-    text: {
-      color: 'red'
-    },
-    button: {
-      height: '25px',
-      backgroundColor: '#80CCED',
-      color: 'white',
-      fontSize: '15px',
-      alignSelf: 'center'
-    }
-  }
-}
