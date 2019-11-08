@@ -5,7 +5,7 @@ import logo from '../../images/crypto-vault.png'
 const Logo = () => {
   return (
     <LogoContainer>
-      <img src={logo}/>
+      <img src={logo} alt="app logo"/>
     </LogoContainer>
   );
 };
