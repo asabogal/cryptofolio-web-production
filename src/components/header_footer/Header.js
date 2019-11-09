@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {NavLogo} from '../utils/Logos'
 
 class Header extends Component {
   constructor(props) {
@@ -14,14 +15,14 @@ class Header extends Component {
     return (
       <Container>
         <div>
-          LOGO
+          <NavLogo width='50px' height='50px'/>
         </div>
 
         <ul>
           <Link to='/dashboard'><li>Dashboard</li></Link>
           <Link to='/settings'><li>Settings</li></Link>
           {
-            this.state.isLoggedIn ? <Link to='/logout'><li>Log Out</li></Link> : null
+            this.state.isLoggedIn ? <Link to='/'><li>Log Out</li></Link> : null
           }
           
         </ul>
@@ -36,14 +37,14 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  width: 100%;
+  height: 80px;
   background: none;
+  margin: 30px;
   ul {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-right: 50px;
+    
   }
   a {
     text-decoration: none;
@@ -52,6 +53,6 @@ const Container = styled.div`
   li {
     list-style: none;
     text-decoration: none;
-    padding: 20px;
+    padding-left: 20px;
   }
 `;
