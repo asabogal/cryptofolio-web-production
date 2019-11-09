@@ -20,7 +20,10 @@ class Header extends Component {
         <ul>
           <Link to='/dashboard'><li>Dashboard</li></Link>
           <Link to='/settings'><li>Settings</li></Link>
-          <Link to='/logout'><li>Log Out</li></Link>
+          {
+            this.state.isLoggedIn ? <Link to='/logout'><li>Log Out</li></Link> : null
+          }
+          
         </ul>
       </Container>
     );
@@ -33,7 +36,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid black; */
   height: 100px;
   width: 100%;
   background: none;
