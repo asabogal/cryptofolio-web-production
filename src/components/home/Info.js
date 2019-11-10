@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from '../utils/Buttons'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const Info = () => {
@@ -7,7 +8,7 @@ const Info = () => {
     <Container>
       <div>
         <h1>CRYPTOCURRENCY PORTFOLIO</h1>
-        <h3>Keep track of your favorite coins </h3>
+        <h3>Keep track of your favorite Coins </h3>
         <p>Live, 24/7 Data</p>
         <p>User Friendly Interface</p>
         <p>Analytical Tools</p>
@@ -16,19 +17,25 @@ const Info = () => {
       
       <div>
         <h1>Get Started</h1>
+        <Link to= '/signup'> 
           <Button>Sign Up</Button>
+        </Link>
+         <Link to='/login'>
           <Button>Log In</Button>
+         </Link>
       </div>    
       
       <div>
-        <Button 
-          style={{marginTop: '20px'}} 
-          width='260px'
-          height='35px'
-          font='15px'
-          >
-          Demo
-        </Button>
+        <Link to='/demo'>
+          <Button 
+            style={{marginTop: '20px'}} 
+            width='260px'
+            height='35px'
+            font='15px'
+            >
+            Demo
+          </Button>
+        </Link>
       </div>
     </Container>
   );
