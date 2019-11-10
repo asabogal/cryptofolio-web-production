@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import {NavLogo} from '../utils/Logos'
+import {Logo} from '../utils/Logos'
 
 class Header extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <Container>
         <div>
-          <NavLogo width='50px' height='50px'/>
+          <Logo link width='60px' height='60px'/>
         </div>
 
         <ul>

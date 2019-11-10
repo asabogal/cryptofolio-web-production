@@ -1,13 +1,13 @@
 import React from 'react';
 import Info from './Info'
-import Logo from './Logo'
+import {Logo} from '../utils/Logos'
 import styled from 'styled-components'
 
 const Content = () => {
   return (
     <Container>
       <Info/>
-      <Logo/>
+      <Logo height='400px' width='400px'/>
     </Container>
   );
 };
@@ -22,6 +22,4 @@ const Container = styled.div`
   align-items: center;
   justify-items: center;
   grid-gap: 15px;
-  width: 80vw;
-  padding: 100px;
 `;
