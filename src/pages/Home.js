@@ -14,6 +14,7 @@ class Home extends Component {
         <Header 
         handleLogin={this.props.handleLogin}
         handleLogout={this.props.handleLogout}
+        loggedInStatus={this.props.loggedInStatus}
         />
         <Content/>
       </div>
