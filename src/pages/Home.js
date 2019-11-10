@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import styled from 'styled-components'
+import Content from '../components/home/Content'
+import Header from '../components/header_footer/Header'
 
 class Home extends Component {
   constructor(props) {
@@ -8,29 +8,17 @@ class Home extends Component {
     this.state = {  };
   }
 
-  handleLogout = () => {
-    axios.delete('http://localhost:3001/logout', {withCredentials: true})
-    .then(response => this.props.handleLogout())
-    .catch(error => console.log(error))
-  }
-
   render() {
     return (
-      <Container>
-        <h1>HOME</h1>
-        {
-          this.props.loggedInStatus ? <h2>Logged In</h2> : <h2>Not Logged In</h2>
-        }
-        {
-          this.props.loggedInStatus ? <button onClick={this.handleLogout}>LOGOUT</button> : null
-        }
-      </Container>
+      <div>
+        <Header 
+        handleLogin={this.props.handleLogin}
+        handleLogout={this.props.handleLogout}
+        />
+        <Content/>
+      </div>
     );
   }
 }
 
 export default Home;
-
-const Container = styled.div`
-  margin: 50px;
-`
