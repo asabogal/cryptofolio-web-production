@@ -21,5 +21,7 @@ const Container = styled.div`
   grid-template-rows: auto;
   align-items: center;
   justify-items: center;
-  grid-gap: 15px;
+  grid-gap: 10px;
+  padding-left: 80px;
+  padding-right: 80px;
 `;
