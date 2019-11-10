@@ -11,22 +11,24 @@ const Info = () => {
         <p>Live, 24/7 Data</p>
         <p>User Friendly Interface</p>
         <p>Analytical Tools</p>
+        <br></br>
       </div>
       
       <div>
-        <h2>Get Started</h2>
-        <div>
+        <h1>Get Started</h1>
           <Button>Sign Up</Button>
           <Button>Log In</Button>
-          <Button 
+      </div>    
+      
+      <div>
+        <Button 
           style={{marginTop: '20px'}} 
           width='260px'
           height='35px'
           font='15px'
           >
-            Demo
-          </Button>
-        </div>
+          Demo
+        </Button>
       </div>
     </Container>
   );
@@ -37,8 +39,7 @@ export default Info;
 //Styled
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 60% 30%;
-  grid-gap: 30px;
+  grid-template-rows: 60% 30% 10%;
   p {
     padding-left: 20px;
   }
