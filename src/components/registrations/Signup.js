@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {FormContainer, ErrorsContainer} from './styled'
+import {Button} from '../utils/Buttons'
 
 class Signup extends Component {
   constructor(props) {
@@ -97,12 +98,14 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
         
-          <button 
-            placeholder="submit"
-            type="submit"
+          <Button 
+          type="submit"
+          width='100%'
+          height='35px'
+          font='15px'
           >
             Sign Up
-          </button>
+          </Button>
       
         </form>
         <div>

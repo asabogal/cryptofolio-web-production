@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import {FormContainer, ToSignup, ErrorsContainer} from './styled'
 import {Link} from 'react-router-dom'
+import {Button} from '../utils/Buttons'
 
 class Login extends Component {
   constructor(props) {
@@ -90,12 +91,14 @@ class Login extends Component {
             onChange={this.handleChange}
           />
 
-          <button 
-           placeholder="submit"
-           type="submit"
+          <Button 
+          type="submit"
+          width='100%'
+          height='35px'
+          font='15px'
           >
             Log In
-          </button>
+          </Button>
 
           <ToSignup>
             or <Link to='/signup' style={{color: '#7F97A4',}}>sign up</Link>

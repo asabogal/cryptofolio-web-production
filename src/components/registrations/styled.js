@@ -16,13 +16,9 @@ export const FormContainer = styled.div`
     font-size: 1rem;
     padding: 5px;
   }
-  button {
-    height: 35px;
-    background-color: #7F97A4;
-    color: white;
-    font-size: 15px;
+  a {
     &:hover {
-      background-color: #677075;
+      font-weight: bold;
     }
   }
 `;
