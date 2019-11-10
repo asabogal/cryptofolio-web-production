@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Logo} from '../utils/Logos'
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      isLoggedIn: false
-     };
+    this.state = { };
+  }
+
+  handleLogout = () => {
+    axios.delete('http://localhost:3001/logout', {withCredentials: true})
+    .then(response => this.props.handleLogout())
+    .catch(error => console.log(error))
   }
 
   render() {
@@ -22,7 +27,7 @@ class Header extends Component {
           <Link to='/dashboard'><li>Dashboard</li></Link>
           <Link to='/settings'><li>Settings</li></Link>
           {
-            this.state.isLoggedIn ? <Link to='/'><li>Log Out</li></Link> : null
+            this.props.loggedInStatus ? <Link to='/' onClick={this.handleLogout}><li>Log Out</li></Link> : null
           }
           
         </ul>
