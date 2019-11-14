@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   
   resources :users, only: [:create, :show]
 
-  resources :coins, only: [:index, :create, :destroy ]
+  resources :coins, only: [:index, :show, :create, :destroy ]
 end
