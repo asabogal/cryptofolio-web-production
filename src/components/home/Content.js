@@ -1,5 +1,6 @@
 import React from 'react';
 import Info from './Info'
+import logo from '../../images/crypto-vault.png'
 import {Logo} from '../utils/Logos'
 import styled from 'styled-components'
 
@@ -7,7 +8,7 @@ const Content = () => {
   return (
     <Container>
       <Info/>
-      <Logo height='400px' width='400px'/>
+      <Logo logo={logo} height='400px' width='400px'/>
     </Container>
   );
 };

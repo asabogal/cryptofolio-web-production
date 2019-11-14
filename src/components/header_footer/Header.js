@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Logo} from '../utils/Logos'
+import logo from '../../images/crypto-vault.png'
 
 class Header extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Header extends Component {
     return (
       <Container>
         <div>
-          <Logo link width='60px' height='60px'/>
+          <Logo link logo={logo} width='60px' height='60px'/>
         </div>
 
         <ul>
