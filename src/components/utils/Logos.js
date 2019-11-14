@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export const Logo = (props) => {
-  console.log(props)
   if (props.link) {
     return (
       <Link to='/'>
@@ -15,7 +14,6 @@ export const Logo = (props) => {
   }
 
 }
-
 
 const LogoContainer = styled.div`
   background: url(${props => props.logo}) no-repeat;
