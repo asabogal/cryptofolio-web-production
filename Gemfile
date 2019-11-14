@@ -7,6 +7,8 @@ gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+
+gem 'dotenv-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -34,6 +36,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'pry', '~> 0.12.2'
 
 gem 'faraday'
+
+gem 'active_model_serializers'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
