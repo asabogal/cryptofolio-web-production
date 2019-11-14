@@ -1,0 +1,2 @@
+class CoinService
+end
