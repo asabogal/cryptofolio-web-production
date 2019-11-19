@@ -6,17 +6,15 @@ class CoinsController < ApplicationController
 
   def show
     @coin = CoinService.find_coin(params[:slug])
-
     if @coin['Response']
       render json: {
-        errors: @coin['Message']
+        errors: [@coin['Message']]
       }
      else 
       render json: {
-        coin: @coin
+        coin: @coin['Data'][0]
       } 
     end
-    
   end
 
   def create
