@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import axios from 'axios'
 import {Button} from '../utils/Buttons'
 
 class Form extends Component {
@@ -20,20 +19,7 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.getCoin(this.state.coinSymbol)
-  }
-
-  getCoin = (symbol) => {
-    let url = `http://localhost:3001/coins/${symbol}`
-    const config = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-type': 'application/json'
-      }
-    }
-    axios.get(url, config)
-    .then(response => response.data.coin.Data[0].CoinInfo)
-    .then(coin => console.log('coin is', coin))
+    this.props.getCoin(this.state.coinSymbol)
   }
 
   render() {

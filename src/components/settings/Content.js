@@ -74,7 +74,7 @@ class Content extends Component {
     return (
       <div>
         {this.renderUserCoins()}
-        <Form updateState={this.updateState} getCoin={this.getCoin}/>
+        <Form getCoin={this.getCoin}/>
         <div>
           {
             this.state.errors ? this.handleErrors() : null
