@@ -2,14 +2,24 @@ require 'pry'
 class CoinsController < ApplicationController
 
   def index
-    @coins = CoinService.find_coin()
   end
 
   def show
+    @coin = CoinService.find_coin(params[:slug])
+
+    if @coin['Response']
+      render json: {
+        errors: @coin['Message']
+      }
+     else 
+      render json: {
+        coin: @coin
+      } 
+    end
+    
   end
 
-  def create(params)
-    
+  def create
   end
 
   def destroy
