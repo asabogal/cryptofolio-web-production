@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import styled from 'styled-components'
 import Form from './Form'
 import CoinCard from '../coins/CoinCard'
 import {ErrorsContainer} from '../registrations/styled'
-import CoinGrid from '../coins/CoinGrid';
 
 class Content extends Component {
   constructor(props) {
@@ -48,7 +46,7 @@ class Content extends Component {
     let coin = {
       symbol: data.Name,
       name: data.FullName,
-      image: `https://www.cryptocompare.com${data.ImageUrl}`
+      imageUrl: `https://www.cryptocompare.com${data.ImageUrl}`
     }
     this.setState({
       userCoins: this.state.userCoins.concat(coin)
@@ -67,23 +65,8 @@ class Content extends Component {
   axios.get(url, config)
   .then(response => {
     this.setState({
-      allCoins: response.data
+      allCoins: response.data.coins
     })
-    })
-    .then(() => console.log('all coins are', this.state.allCoins))
-  }
-
-  renderUserCoins = () => {
-    const coins = this.state.userCoins
-    return coins.map(coin => {
-      return (
-        <CoinCard 
-        key={coin.symbol}
-        symbol={coin.symbol}
-        name={coin.name}
-        image={coin.image}
-        />
-      )
     })
   }
 
@@ -99,17 +82,33 @@ class Content extends Component {
       </ErrorsContainer>
     )
   }
+
+  renderCoins = (coins) => {
+    console.log('passed coins', coins)
+    return coins.map(coin => {
+      return (
+        <CoinCard 
+        key={coin.symbol}
+        symbol={coin.symbol}
+        name={coin.name}
+        image={coin.imageUrl}
+        />
+      )
+    })
+  }
     
   render() {
     return (
       <div>
-        {this.renderUserCoins()}
+        <h2>Select or search your favorite coins</h2>
+        {this.renderCoins(this.state.userCoins)}
         <Form getCoin={this.getCoin}/>
         <div>
           {
             this.state.errors ? this.handleErrors() : null
           }
         </div>
+        {this.renderCoins(this.state.allCoins)}
       </div>
     );
   }
