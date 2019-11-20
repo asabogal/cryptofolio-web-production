@@ -6,8 +6,16 @@ class CoinService
     end
 
     @body = JSON.parse(resp.body)
-
+    @body
   end
-   @body
+
+  def self.find_all_coins
+    url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=50&tsym=USD'
+    resp = Faraday.get url do |req|
+    end
+
+    @body = JSON.parse(resp.body)
+    @body
+  end
 
 end
