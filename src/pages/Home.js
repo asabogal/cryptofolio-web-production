@@ -11,11 +11,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header 
-        handleLogin={this.props.handleLogin}
-        handleLogout={this.props.handleLogout}
-        loggedInStatus={this.props.loggedInStatus}
-        />
         <Content/>
       </div>
     );
