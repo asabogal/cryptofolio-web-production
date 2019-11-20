@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
 import Form from './Form'
 import CoinCard from '../coins/CoinCard'
 import {ErrorsContainer} from '../registrations/styled'
+import CoinGrid from '../coins/CoinGrid';
 
 class Content extends Component {
   constructor(props) {
@@ -14,6 +16,10 @@ class Content extends Component {
      };
   }
 
+  componentDidMount() {
+    this.getAllCoins()
+  }
+
   getCoin = (symbol) => {
     let url = `http://localhost:3001/coins/${symbol}`
     const config = {
@@ -22,14 +28,20 @@ class Content extends Component {
         'Content-type': 'application/json'
       }
     }
-    axios.get(url, config)
-    .then((response) => {
-      response.data.errors ? this.setState({
-        errors: response.data.errors
-      }) :
-      this.addCoin(response.data.coin.CoinInfo)
+    this.state.userCoins.length <= 2 ? (
+      axios.get(url, config)
+      .then((response) => {
+        response.data.errors ? this.setState({
+          errors: response.data.errors
+        }) : 
+        this.addCoin(response.data.coin.CoinInfo)
+      })
+      .then(() => console.log(this.state.userCoins))
+    ) 
+    :
+    this.setState({
+      errors: ['max number of coins reached']
     })
-    .then(() => console.log(this.state.userCoins))
   }
 
   addCoin = (data) => {
@@ -41,6 +53,24 @@ class Content extends Component {
     this.setState({
       userCoins: this.state.userCoins.concat(coin)
     })
+  }
+
+  getAllCoins = () => {
+    let url = 'http://localhost:3001/coins/'
+    const config = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      }
+  }
+
+  axios.get(url, config)
+  .then(response => {
+    this.setState({
+      allCoins: response.data
+    })
+    })
+    .then(() => console.log('all coins are', this.state.allCoins))
   }
 
   renderUserCoins = () => {
