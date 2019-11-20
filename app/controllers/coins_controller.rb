@@ -9,7 +9,7 @@ class CoinsController < ApplicationController
       obj = {}
       obj['symbol'] = dat['CoinInfo']['Name']
       obj['name'] = dat['CoinInfo']['FullName']
-      obj['imageUrl'] = dat['CoinInfo']['ImageUrl']
+      obj['imageUrl'] = "https://www.cryptocompare.com#{dat['CoinInfo']['ImageUrl']}"
       obj['price'] = dat['DISPLAY']['USD']['PRICE']
       obj['openDay'] = dat['DISPLAY']['USD']['OPENDAY']
       obj['changeDay'] = dat['DISPLAY']['USD']['CHANGEDAY']
