@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Form from './Form'
 import CoinCard from '../coins/CoinCard'
+import CoinGrid from '../coins/CoinGrid'
 import {ErrorsContainer} from '../registrations/styled'
 
 class Content extends Component {
@@ -108,7 +109,9 @@ class Content extends Component {
             this.state.errors ? this.handleErrors() : null
           }
         </div>
-        {this.renderCoins(this.state.allCoins)}
+        <CoinGrid>
+          {this.renderCoins(this.state.allCoins)}
+        </CoinGrid>
       </div>
     );
   }
