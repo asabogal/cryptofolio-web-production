@@ -8,11 +8,10 @@ const CoinCard = ({symbol, name, image}) => {
     <CardContainer>
       <section>
         <div>{symbol}</div>
-        -
         <div>{name}</div>
       </section>
       <div>
-        <Logo logo={image} width="50px" height="50px"/>
+        <Logo logo={image} width="65px" height="65px"/>
       </div>
     </CardContainer>
   );
@@ -27,8 +26,11 @@ const CardContainer = styled.div`
   grid-template-rows: 1fr 2fr;
   justify-content: center;
   align-content: center;
-  border: 1px solid white;
-  section {
-    display: flex;
-  }
+  background-color: #2f314d;
+  padding: 10px;
+  width: 200px;
+  height: 120px;
+   :hover {
+       border: 2px solid #2a8ba8;
+   }
 `;
