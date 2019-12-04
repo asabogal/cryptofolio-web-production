@@ -7,8 +7,8 @@ const CoinCard = ({symbol, name, image}) => {
   return (
     <CardContainer>
       <section>
-        <div>{symbol}</div>
-        <div>{name}</div>
+        <div style={{textAlign: 'left'}}>{symbol}</div>
+        <div style={{textAlign: 'right'}}>{name}</div>
       </section>
       <div>
         <Logo logo={image} width="65px" height="65px"/>
@@ -24,13 +24,24 @@ export default CoinCard;
 const CardContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr 2fr;
-  justify-content: center;
-  align-content: center;
-  background-color: #2f314d;
+  background-color: #212542;
   padding: 10px;
   width: 200px;
   height: 120px;
+  cursor: pointer;
    :hover {
        border: 2px solid #2a8ba8;
+       background-color: #272841;
+   }
+   section {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffffdb;
+   }
+   div {
+     justify-self: center;
+     align-self: center;
    }
 `;
