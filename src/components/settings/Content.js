@@ -27,15 +27,20 @@ class Content extends Component {
         'Content-type': 'application/json'
       }
     }
-    this.state.userCoins.length <= 2 ? (
+    this.state.userCoins.length <= 3 ? (
       axios.get(url, config)
       .then((response) => {
+        const {Name, FullName, ImageUrl} = response.data.coin.CoinInfo
+        const coin = {
+          symbol: Name,
+          name: FullName,
+          imageUrl: `https://www.cryptocompare.com${ImageUrl}`
+        }
         response.data.errors ? this.setState({
           errors: response.data.errors
         }) : 
-        this.addCoin(response.data.coin.CoinInfo)
+        this.addCoin(coin)
       })
-      .then(() => console.log(this.state.userCoins))
     ) 
     :
     this.setState({
@@ -43,12 +48,7 @@ class Content extends Component {
     })
   }
 
-  addCoin = (data) => {
-    let coin = {
-      symbol: data.Name,
-      name: data.FullName,
-      imageUrl: `https://www.cryptocompare.com${data.ImageUrl}`
-    }
+  addCoin = (coin) => {
     this.setState({
       userCoins: this.state.userCoins.concat(coin)
     })
@@ -85,7 +85,6 @@ class Content extends Component {
   }
 
   renderCoins = (coins, top) => {
-    console.log('passed coins', coins)
     return coins.map(coin => {
       return (
         <CoinCard 
@@ -94,6 +93,7 @@ class Content extends Component {
         symbol={coin.symbol}
         name={coin.name}
         image={coin.imageUrl}
+        addCoin={this.addCoin}
         />
       )
     })
@@ -103,7 +103,9 @@ class Content extends Component {
     return (
       <div>
         <h2>Select or search your favorite coins</h2>
-        {this.renderCoins(this.state.userCoins, 'top')}
+        <CoinGrid>
+          {this.renderCoins(this.state.userCoins, 'top')}
+        </CoinGrid>
         <Form getCoin={this.getCoin}/>
         <div>
           {
