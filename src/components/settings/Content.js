@@ -84,11 +84,12 @@ class Content extends Component {
     )
   }
 
-  renderCoins = (coins) => {
+  renderCoins = (coins, top) => {
     console.log('passed coins', coins)
     return coins.map(coin => {
       return (
         <CoinCard 
+        top={top}
         key={coin.symbol}
         symbol={coin.symbol}
         name={coin.name}
@@ -102,7 +103,7 @@ class Content extends Component {
     return (
       <div>
         <h2>Select or search your favorite coins</h2>
-        {this.renderCoins(this.state.userCoins)}
+        {this.renderCoins(this.state.userCoins, 'top')}
         <Form getCoin={this.getCoin}/>
         <div>
           {
