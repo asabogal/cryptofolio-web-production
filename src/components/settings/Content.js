@@ -71,6 +71,14 @@ class Content extends Component {
     })
   }
 
+  removeCoin = (coin) => {
+    const array = this.state.userCoins
+    const result = array.filter(c => c.symbol !== coin.symbol)
+    this.setState({
+      userCoins: result
+    })
+  }
+
   handleErrors = () => {
     return (
       <ErrorsContainer>
@@ -94,6 +102,7 @@ class Content extends Component {
         name={coin.name}
         image={coin.imageUrl}
         addCoin={this.addCoin}
+        removeCoin={this.removeCoin}
         />
       )
     })
