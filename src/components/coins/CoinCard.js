@@ -2,13 +2,22 @@ import React from 'react';
 import styled from 'styled-components'
 import {Logo} from '../utils/Logos'
 
-const CoinCard = ({symbol, name, image, top}) => {
+const CoinCard = ({symbol, name, image, top, addCoin, removeCoin}) => {
 
   let CardBody
   top ? CardBody = CardTop : CardBody = CardBottom
+
+  const clickCoinHanlder = () => {
+    let coin = {
+      symbol: symbol,
+      name: name,
+      imageUrl: image
+    }
+    top ? removeCoin(coin) : addCoin(coin)
+  }
  
   return (
-    <CardBody>
+    <CardBody onClick={clickCoinHanlder}>
       <section>
         <div>{name}</div>
         <div>{symbol}</div>
