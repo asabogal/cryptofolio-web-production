@@ -2,18 +2,22 @@ import React from 'react';
 import styled from 'styled-components'
 import {Logo} from '../utils/Logos'
 
-const CoinCard = ({symbol, name, image}) => {
+const CoinCard = ({symbol, name, image, top}) => {
 
+  let CardBody
+  top ? CardBody = CardTop : CardBody = CardBottom
+ 
   return (
-    <CardContainer>
+    <CardBody>
       <section>
-        <div style={{textAlign: 'left'}}>{symbol}</div>
-        <div style={{textAlign: 'right'}}>{name}</div>
+        <div>{name}</div>
+        <div>{symbol}</div>
+        <DeleteIcon> X </DeleteIcon>
       </section>
       <div>
         <Logo logo={image} width="65px" height="65px"/>
       </div>
-    </CardContainer>
+    </CardBody>
   );
 };
 
@@ -21,7 +25,7 @@ export default CoinCard;
 
 //styled
 
-const CardContainer = styled.div`
+const CardBottom = styled.div`
   display: grid;
   grid-template-rows: 1fr 2fr;
   background-color: #212542;
@@ -44,4 +48,24 @@ const CardContainer = styled.div`
      justify-self: center;
      align-self: center;
    }
+`;
+
+const CardTop = styled(CardBottom)`
+   :hover {
+     section div:nth-child(2) {
+       display: none;
+     }
+       border: 2px solid red;
+       background-color: #272841;
+   }
+`;
+
+const DeleteIcon = styled.div`
+  display: none;
+  ${CardTop}:hover & {
+    display: flex;
+    color: red;
+    align-self: right;
+    text-align: right;
+  }
 `;
