@@ -2,10 +2,14 @@ import React from 'react';
 import styled from 'styled-components'
 import {Logo} from '../utils/Logos'
 
-const CoinCard = ({symbol, name, image, top, addCoin, removeCoin}) => {
+const CoinCard = ({symbol, name, image, top, addCoin, removeCoin, isUserCoin}) => {
 
-  let CardBody
-  top ? CardBody = CardTop : CardBody = CardBottom
+  let CardBody = CardBottom
+  if (top) {
+    CardBody = CardTop
+  } else if (isUserCoin(symbol)) {
+    CardBody = DisabledCoin
+  }
 
   const clickCoinHanlder = () => {
     let coin = {
@@ -67,6 +71,11 @@ const CardTop = styled(CardBottom)`
        border: 2px solid red;
        background-color: #272841;
    }
+`;
+
+const DisabledCoin = styled(CardBottom)`
+  opacity: .1;
+  pointer-events: none;
 `;
 
 const DeleteIcon = styled.div`
