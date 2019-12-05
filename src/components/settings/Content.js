@@ -27,31 +27,34 @@ class Content extends Component {
         'Content-type': 'application/json'
       }
     }
-    this.state.userCoins.length <= 3 ? (
-      axios.get(url, config)
-      .then((response) => {
+    axios.get(url, config)
+    .then((response) => {
+      if (response.data.errors) {
+        this.setState({
+            errors: response.data.errors
+          })
+      } else {
         const {Name, FullName, ImageUrl} = response.data.coin.CoinInfo
         const coin = {
           symbol: Name,
           name: FullName,
           imageUrl: `https://www.cryptocompare.com${ImageUrl}`
         }
-        response.data.errors ? this.setState({
-          errors: response.data.errors
-        }) : 
         this.addCoin(coin)
-      })
-    ) 
-    :
-    this.setState({
-      errors: ['max number of coins reached']
+      }
     })
   }
 
   addCoin = (coin) => {
-    this.setState({
-      userCoins: this.state.userCoins.concat(coin)
-    })
+    if (!this.isUserCoin(coin.symbol) && this.state.userCoins.length <= 3) {
+      this.setState({
+        userCoins: this.state.userCoins.concat(coin)
+      })
+    } else {
+      this.setState({
+        errors: ['max number of coins reached']
+      })
+    }
   }
 
   getAllCoins = () => {
