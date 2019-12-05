@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
 import Form from './Form'
 import CoinCard from '../coins/CoinCard'
 import CoinGrid from '../coins/CoinGrid'
 import {ErrorsContainer} from '../registrations/styled'
+import {Button} from '../utils/Buttons'
 
 class Content extends Component {
   constructor(props) {
@@ -11,7 +13,8 @@ class Content extends Component {
     this.state = { 
       userCoins: [],
       allCoins: [],
-      errors: ''
+      errors: '',
+      coinsAdded: false
      };
   }
 
@@ -48,12 +51,15 @@ class Content extends Component {
   addCoin = (coin) => {
     if (!this.isUserCoin(coin.symbol) && this.state.userCoins.length <= 3) {
       this.setState({
-        userCoins: this.state.userCoins.concat(coin)
+        userCoins: this.state.userCoins.concat(coin),
+        coinsAdded: true
       })
+      window.scroll(0, 0)
     } else {
       this.setState({
         errors: ['max number of user coins reached', 'please save current coins or remove and replace for another one']
       })
+      window.scroll(0, 0)
     }
   }
 
@@ -80,6 +86,7 @@ class Content extends Component {
     this.setState({
       userCoins: result
     })
+    if (this.state.userCoins.length === 1) this.setState({coinsAdded: false})
     if (this.state.errors) this.setState({errors: ''})
   }
 
@@ -123,10 +130,23 @@ class Content extends Component {
   render() {
     return (
       <div>
-        <h2>Select or search your favorite coins</h2>
+        <UserCoins coinsAdded={this.state.coinsAdded}>
+          <h1>Your Coins</h1>
+        </UserCoins>
         <CoinGrid>
           {this.renderCoins(this.state.userCoins, 'top')}
         </CoinGrid>
+        <UserAction coinsAdded={this.state.coinsAdded}>
+          <Button
+            font='12px'
+            width='250px'
+            height='35px'
+            >
+              SAVE COINS
+            </Button>
+        </UserAction>
+
+        <h2>Select or search your favorite coins (max 4):</h2>
         <Form getCoin={this.getCoin}/>
         <div>
           {
@@ -142,3 +162,13 @@ class Content extends Component {
 }
 
 export default Content;
+
+const UserCoins = styled.div`
+  text-align: center;
+  display: ${props => (props.coinsAdded ? 'block' : 'none')};
+`;
+
+const UserAction = styled.div`
+  text-align: right;
+  display: ${props => (props.coinsAdded ? 'block' : 'none')};
+`;
