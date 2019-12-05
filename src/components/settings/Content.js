@@ -52,7 +52,7 @@ class Content extends Component {
       })
     } else {
       this.setState({
-        errors: ['max number of coins reached']
+        errors: ['max number of user coins reached', 'please save current coins or remove and replace for another one']
       })
     }
   }
@@ -80,19 +80,22 @@ class Content extends Component {
     this.setState({
       userCoins: result
     })
+    if (this.state.errors) this.setState({errors: ''})
   }
 
   handleErrors = () => {
-    return (
-      <ErrorsContainer>
-        <ul>
-        {this.state.errors.map(error => {
-        return <li style={{padding: '2px'}} key={error}>{error}</li>
-          })
-        }
-        </ul>
-      </ErrorsContainer>
-    )
+    if (this.state.errors) {
+      return (
+        <ErrorsContainer>
+          <ul>
+          {this.state.errors.map(error => {
+          return <li style={{padding: '2px'}} key={error}>{error}</li>
+            })
+          }
+          </ul>
+        </ErrorsContainer>
+      )
+    } 
   }
 
   isUserCoin = (symbol) => {
@@ -127,7 +130,7 @@ class Content extends Component {
         <Form getCoin={this.getCoin}/>
         <div>
           {
-            this.state.errors ? this.handleErrors() : null
+            this.handleErrors()
           }
         </div>
         <CoinGrid>
