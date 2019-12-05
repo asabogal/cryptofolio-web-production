@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Content from '../components/settings/Content'
 
 class Settings extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Settings extends Component {
   render() {
     return (
       <div>
-        SETTINGS
+        <Content/>
       </div>
     );
   }
