@@ -34,7 +34,7 @@ export const ErrorsContainer = styled.div`
   display: grid;
   width: 300px;
   border: 1px thin red;
-  background-color: #FCF1F1;
+  background-color: #ccccf0;
   :nth-child(1) {
     color: red;
   }
