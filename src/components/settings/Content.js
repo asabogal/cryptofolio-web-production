@@ -95,6 +95,11 @@ class Content extends Component {
     )
   }
 
+  isUserCoin = (symbol) => {
+    const array = this.state.userCoins
+    return array.some(c => c.symbol === symbol)
+  }
+
   renderCoins = (coins, top) => {
     return coins.map(coin => {
       return (
@@ -106,6 +111,7 @@ class Content extends Component {
         image={coin.imageUrl}
         addCoin={this.addCoin}
         removeCoin={this.removeCoin}
+        isUserCoin={this.isUserCoin}
         />
       )
     })
