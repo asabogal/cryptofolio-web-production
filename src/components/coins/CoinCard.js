@@ -64,6 +64,7 @@ const CardBottom = styled.div`
 `;
 
 const CardTop = styled(CardBottom)`
+background-color: #2a8ba8;
    :hover {
      section div:nth-child(2) {
        display: none;

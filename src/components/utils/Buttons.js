@@ -9,6 +9,6 @@ export const Button = styled.button`
   margin-right: ${(props => props.marginR || '20px')};
   cursor: pointer;
   &:hover {
-    background-color: #2a8ba8;
+    background-color: ${(props => props.hover || '#2a8ba8')};
 }
 `;

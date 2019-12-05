@@ -20,5 +20,5 @@ const LogoContainer = styled.div`
   background-size: cover !important;
   width: ${props => props.height};
   height: ${props => props.width};
-  opacity: .6;
+  opacity: ${props => props.opacity || '1'};
 `;
