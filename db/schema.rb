@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 2019_11_14_015322) do
   enable_extension "plpgsql"
 
   create_table "coins", force: :cascade do |t|
-    t.string "symbol"
     t.string "name"
+    t.string "symbol"
+    t.string "imageUrl"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
