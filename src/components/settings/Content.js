@@ -126,6 +126,23 @@ class Content extends Component {
       )
     })
   }
+
+  saveCoinsToApi = () => {
+    const coins = this.state.userCoins
+    const url = 'http://localhost:3001/coins/'
+    const payload = {
+     coin: coins
+    }
+    console.log(payload)
+    const config = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      }
+    }
+    axios.post(url, payload, config)
+    .then(response => console.log('response is', response))
+  }
     
   render() {
     return (
@@ -138,6 +155,7 @@ class Content extends Component {
         </CoinGrid>
         <UserAction coinsAdded={this.state.coinsAdded}>
           <Button
+          onClick={this.saveCoinsToApi}
             font='12px'
             width='250px'
             height='35px'
