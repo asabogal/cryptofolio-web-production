@@ -38,9 +38,29 @@ class CoinsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user][:id])
+    @coins = Coin.create(coins_params)
+    @user.coins = @coins
+    @user.save
+    render json: {
+      status: :created,
+      coins: @coins
+    }
   end
 
   def destroy
+  end
+
+  private
+
+  def coins_params
+    params.require(:coin).map do |c|
+      c.permit(
+        :symbol,
+        :name,
+        :imageUrl
+      )
+    end
   end
 
 end
