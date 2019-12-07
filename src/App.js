@@ -68,7 +68,12 @@ class App extends Component {
                 <Dashboard {...props} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
-              <Route exact path='/settings' component={Settings}/>
+              <Route 
+                exact path='/settings' c
+                render={props => (
+                <Settings {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>
+                )}
+              />
               <Route 
                 exact path='/signup' 
                 render={props => (
