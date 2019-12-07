@@ -9,7 +9,7 @@ class Settings extends Component {
   render() {
     return (
       <div>
-        <Content/>
+        <Content user={this.props.user} loggedInStatus={this.props.loggedInStatus}/>
       </div>
     );
   }
