@@ -128,12 +128,13 @@ class Content extends Component {
   }
 
   saveCoinsToApi = () => {
+    const user = this.props.user
     const coins = this.state.userCoins
     const url = 'http://localhost:3001/coins/'
     const payload = {
-     coin: coins
+      user: user,
+      coin: coins
     }
-    console.log(payload)
     const config = {
       headers: {
         'Accept': 'application/json',
