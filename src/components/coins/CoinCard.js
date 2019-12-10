@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import {Logo} from '../utils/Logos'
 
-const CoinCard = ({symbol, name, image, top, addCoin, removeCoin, isUserCoin}) => {
+export const CoinCard = ({symbol, name, image, top, addCoin, removeCoin, isUserCoin}) => {
 
   let CardBody = CardBottom
   if (top) {
@@ -33,8 +33,6 @@ const CoinCard = ({symbol, name, image, top, addCoin, removeCoin, isUserCoin}) =
     </CardBody>
   );
 };
-
-export default CoinCard;
 
 //styled
 
@@ -73,6 +71,11 @@ background-color: #2a8ba8;
        background-color: #272841;
    }
 `;
+
+export const InfoCard = styled(CardBottom)`
+  grid-template-rows: 1fr 2fr 1fr;
+`;
+
 
 const DisabledCoin = styled(CardBottom)`
   opacity: .1;
