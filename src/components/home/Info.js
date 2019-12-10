@@ -46,7 +46,7 @@ export default Info;
 //Styled
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 60% 30% 10%;
+  grid-template-rows: 2fr 1fr 1fr;
   p {
     padding-left: 20px;
   }
