@@ -18,4 +18,13 @@ class CoinService
     @body
   end
 
+  def self.find_user_coins(symbols)
+    url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=#{symbols}&tsyms=USD"
+    resp = Faraday.get url do |req|
+    end
+
+    @body = JSON.parse(resp.body)
+    @body
+  end
+
 end
