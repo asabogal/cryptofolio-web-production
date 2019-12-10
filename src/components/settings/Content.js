@@ -143,6 +143,11 @@ class Content extends Component {
     }
     axios.post(url, payload, config)
     .then(response => console.log('response is', response))
+    .then(() => this.redirect())
+  }
+
+  redirect = () => {
+    this.props.history.push('/dashboard')
   }
     
   render() {
