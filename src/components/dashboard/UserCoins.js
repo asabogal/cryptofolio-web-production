@@ -12,7 +12,6 @@ class UserCoins extends Component {
   }
 
   componentDidMount() {
-    console.log('user coins did mount', this.props)
     this.getUserCoins(this.props.user)
   } 
 

@@ -10,7 +10,6 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    console.log('dashboard', this.props.user)
     this.setState({
       user: this.props.user
     })
@@ -23,7 +22,6 @@ class Dashboard extends Component {
         {
           this.state.user ? <UserCoins user={this.state.user}/> : null
         }
-        
       </div>
     );
   }
