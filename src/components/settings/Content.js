@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
 import Form from './Form'
-import CoinCard from '../coins/CoinCard'
+import {CoinCard} from '../coins/CoinCard'
 import CoinGrid from '../coins/CoinGrid'
 import {ErrorsContainer} from '../registrations/styled'
 import {Button} from '../utils/Buttons'
