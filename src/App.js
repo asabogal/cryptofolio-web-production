@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = { 
       isLoggedIn: false,
-      user: {}
+      user: ''
      };
   }
   componentDidMount() {
@@ -42,7 +42,7 @@ class App extends Component {
   handleLogout = () => {
     this.setState({
     isLoggedIn: false,
-    user: {}
+    user: ''
     })
   }
 
@@ -64,8 +64,8 @@ class App extends Component {
               />
               <Route 
                 exact path='/dashboard' 
-                render={props => (
-                <Dashboard {...props} loggedInStatus={this.state.isLoggedIn}/>
+                component={props => (
+                <Dashboard {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
              <Route 
