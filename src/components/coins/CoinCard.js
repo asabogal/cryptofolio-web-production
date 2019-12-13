@@ -73,7 +73,26 @@ background-color: #2a8ba8;
 `;
 
 export const InfoCard = styled(CardBottom)`
+  height: 90px;
   grid-template-rows: 1fr 2fr 1fr;
+  section :nth-child(2) {
+    color: ${props => props.changePct < 0 ? 'red' : 'green' }
+  }
+  div {
+    justify-self: 'left';
+    align-self: center;
+  }
+  .card-price {
+    font-size: 28px;
+    font-weight: bold;
+    justify-self: left;
+    align-self: center;
+  }
+  .card-mktcap {
+    font-size: 15px;
+    color: grey;
+    justify-self: right;
+  }
 `;
 
 

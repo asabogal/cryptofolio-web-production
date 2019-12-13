@@ -3,17 +3,16 @@ import {InfoCard} from './CoinCard'
 
 const UserCoin = ({symbol, price, changeDay, changePct, mrktCap}) => {
   return (
-    <InfoCard>
+    <InfoCard changePct={changePct}>
       <section>
-        <div>{symbol}</div>
-        <div>{changeDay}</div>
-        <div>{changePct}</div>
+        <div>{symbol} -- USD</div>
+        <div>{changePct}%</div>
       </section>
       <div>
-        <div>{price}</div>
+        <div className='card-price'>{price}</div>
       </div>
       <div>
-       <div>{mrktCap}</div>
+       <div className='card-mktcap'><span>Mkt.Cap: </span>{mrktCap}</div>
       </div>
     </InfoCard>
   );
