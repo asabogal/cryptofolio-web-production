@@ -45,10 +45,15 @@ class UsersController < ApplicationController
     response.each_with_index do |(key, value), index|
       obj = {}
       obj['symbol'] = key
+      obj['imageUrl'] = value['USD']['IMAGEURL']
       obj['price'] = value['USD']['PRICE']
       obj['changeDay'] = value['USD']['CHANGEDAY']
       obj['changePct'] = value['USD']['CHANGEPCTDAY']
       obj['mrktCap'] = value['USD']['MKTCAP']
+      obj['supply'] = value['USD']['SUPPLY']
+      obj['24HrVolume'] = value['USD']['VOLUME24HOURTO']
+      obj['dayHigh'] = value['USD']['HIGHDAY']
+      obj['dayLow'] = value['USD']['LOWDAY']
       data.push(obj)
     end
 
