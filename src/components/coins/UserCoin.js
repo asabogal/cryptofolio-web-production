@@ -1,9 +1,18 @@
 import React from 'react';
 import {InfoCard} from './CoinCard'
 
-const UserCoin = ({symbol, price, changeDay, changePct, mrktCap}) => {
+const UserCoin = ({symbol, imageUrl, price, changeDay, changePct, mrktCap, supply, volume24Hr, dayHigh, dayLow, passSelectedCoin}) => {
+
+  const clickHandler = () => {
+    let coin = {
+      symbol: symbol,
+      price: price
+    }
+    passSelectedCoin(coin)
+  }
+
   return (
-    <InfoCard changePct={changePct}>
+    <InfoCard onClick={clickHandler} changePct={changePct}>
       <section>
         <div>{symbol} -- USD</div>
         <div>{changePct}%</div>
