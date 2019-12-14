@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       obj['changePct'] = value['USD']['CHANGEPCTDAY']
       obj['mrktCap'] = value['USD']['MKTCAP']
       obj['supply'] = value['USD']['SUPPLY']
-      obj['24HrVolume'] = value['USD']['VOLUME24HOURTO']
+      obj['volume24Hr'] = value['USD']['VOLUME24HOURTO']
       obj['dayHigh'] = value['USD']['HIGHDAY']
       obj['dayLow'] = value['USD']['LOWDAY']
       data.push(obj)
