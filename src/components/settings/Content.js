@@ -6,6 +6,7 @@ import {CoinCard} from '../coins/CoinCard'
 import CoinGrid from '../coins/CoinGrid'
 import {ErrorsContainer} from '../registrations/styled'
 import {Button} from '../utils/Buttons'
+import {Loader} from '../utils/Loader'
 
 class Content extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class Content extends Component {
       userCoins: [],
       allCoins: [],
       errors: '',
-      coinsAdded: false
+      coinsAdded: false,
+      loading: true
      };
   }
 
@@ -75,7 +77,8 @@ class Content extends Component {
   axios.get(url, config)
   .then(response => {
     this.setState({
-      allCoins: response.data.coins
+      allCoins: response.data.coins,
+      loading: false
     })
     })
   }
@@ -142,12 +145,20 @@ class Content extends Component {
       }
     }
     axios.post(url, payload, config)
-    .then(response => console.log('response is', response))
     .then(() => this.redirect())
   }
 
   redirect = () => {
     this.props.history.push('/dashboard')
+  }
+
+  loadCoinContent = () => {
+    return this.state.loading ? <Loader allCoins/> : 
+      (
+      <CoinGrid>
+        {this.renderCoins(this.state.allCoins)}
+      </CoinGrid>
+      )
   }
     
   render() {
@@ -177,9 +188,7 @@ class Content extends Component {
             this.handleErrors()
           }
         </div>
-        <CoinGrid>
-          {this.renderCoins(this.state.allCoins)}
-        </CoinGrid>
+          {this.loadCoinContent()}
       </div>
     );
   }

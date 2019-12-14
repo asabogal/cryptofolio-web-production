@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import UserCoin from '../coins/UserCoin'
 import CoinGrid from '../coins/CoinGrid'
+import {Loader} from '../utils/Loader'
 
 class UserCoins extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      userCoins: ''
+      userCoins: '',
+      loading: true
      };
   }
 
@@ -27,7 +29,8 @@ class UserCoins extends Component {
 
     axios.get(url, config).then(response => {
       this.setState({
-        userCoins: response.data.coins
+        userCoins: response.data.coins,
+        loading: false
       })
     })
   }
@@ -48,17 +51,19 @@ class UserCoins extends Component {
     })
   }
 
+  loadCoinContent = () => {
+    return this.state.loading ? <Loader/> : 
+    (
+    <CoinGrid>
+      {this.renderCoins(this.state.userCoins)}
+    </CoinGrid>
+    )
+  }
+
   render() {
     return (
       <div>
-      {
-        this.state.userCoins ? (
-          <CoinGrid>
-          {this.renderCoins(this.state.userCoins)}
-        </CoinGrid>
-        ) :
-        null
-      }
+        {this.loadCoinContent()}
       </div>
     );
   }
