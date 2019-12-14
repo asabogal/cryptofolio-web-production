@@ -35,6 +35,9 @@ class UserCoins extends Component {
     })
   }
 
+  passSelectedCoin = (coin) => {
+    this.props.setSelectedCoin(coin)
+  }
 
   renderCoins = (coins) => {
     return coins.map(coin => {
@@ -51,6 +54,7 @@ class UserCoins extends Component {
           volume24Hr={coin.volume24Hr}
           dayHigh={coin.dayHigh}
           dayLow={coin.dayLow}
+          passSelectedCoin={this.passSelectedCoin}
         />
       )
     })
