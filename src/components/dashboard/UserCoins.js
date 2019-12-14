@@ -42,10 +42,15 @@ class UserCoins extends Component {
         <UserCoin
           key={coin.symbol}
           symbol={coin.symbol}
+          imageUrl={coin.imageUrl}
           price={coin.price}
           changeDay={coin.changeDay}
           changePct={coin.changePct}
           mrktCap={coin.mrktCap}
+          supply={coin.supply}
+          volume24Hr={coin.volume24Hr}
+          dayHigh={coin.dayHigh}
+          dayLow={coin.dayLow}
         />
       )
     })
