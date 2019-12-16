@@ -1,7 +1,10 @@
 import React from 'react';
-import {InfoCard} from './CoinCard'
+import {InfoCard, ActiveInfoCard} from './CoinCard'
 
-const UserCoin = ({symbol, imageUrl, price, changeDay, changePct, mrktCap, supply, volume24Hr, dayHigh, dayLow, passSelectedCoin}) => {
+const UserCoin = ({symbol, imageUrl, price, changeDay, changePct, mrktCap, supply, volume24Hr, dayHigh, dayLow, passSelectedCoin, activeCoin}) => {
+  
+  let CardBody;
+  activeCoin.symbol === symbol ? CardBody = ActiveInfoCard : CardBody = InfoCard
 
   const clickHandler = () => {
     let coin = {
@@ -20,7 +23,7 @@ const UserCoin = ({symbol, imageUrl, price, changeDay, changePct, mrktCap, suppl
   }
 
   return (
-    <InfoCard onClick={clickHandler} changePct={changePct}>
+    <CardBody onClick={clickHandler} changePct={changePct}>
       <section>
         <div>{symbol} -- USD</div>
         <div>{changePct}%</div>
@@ -31,7 +34,7 @@ const UserCoin = ({symbol, imageUrl, price, changeDay, changePct, mrktCap, suppl
       <div>
        <div className='card-mktcap'><span>Mkt.Cap: </span>{mrktCap}</div>
       </div>
-    </InfoCard>
+    </CardBody>
   );
 };
 

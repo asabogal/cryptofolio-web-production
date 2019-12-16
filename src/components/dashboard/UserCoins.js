@@ -9,7 +9,8 @@ class UserCoins extends Component {
     super(props);
     this.state = { 
       userCoins: '',
-      loading: true
+      loading: true,
+      activeCoin: ''
      };
   }
 
@@ -37,6 +38,9 @@ class UserCoins extends Component {
 
   passSelectedCoin = (coin) => {
     this.props.setSelectedCoin(coin)
+    this.setState({
+      activeCoin: coin
+    })
   }
 
   renderCoins = (coins) => {
@@ -55,6 +59,7 @@ class UserCoins extends Component {
           dayHigh={coin.dayHigh}
           dayLow={coin.dayLow}
           passSelectedCoin={this.passSelectedCoin}
+          activeCoin={this.state.activeCoin}
         />
       )
     })

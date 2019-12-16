@@ -95,6 +95,11 @@ export const InfoCard = styled(CardBottom)`
   }
 `;
 
+export const ActiveInfoCard = styled(InfoCard)`
+  border: 2px solid #2a8ba8;
+  background-color: #272841;
+`;
+
 
 const DisabledCoin = styled(CardBottom)`
   opacity: .1;
