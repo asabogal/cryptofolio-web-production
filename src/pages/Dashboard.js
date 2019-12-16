@@ -28,7 +28,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h1>DASHBOARD</h1>  
         {
           this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin} isActive={this.state.active}/> : null
         }
