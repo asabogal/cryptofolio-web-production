@@ -6,7 +6,15 @@ const UserCoin = ({symbol, imageUrl, price, changeDay, changePct, mrktCap, suppl
   const clickHandler = () => {
     let coin = {
       symbol: symbol,
-      price: price
+      price: price,
+      imageUrl: imageUrl,
+      changeDay: changeDay,
+      changePct: changePct,
+      mrktCap: mrktCap,
+      supply: supply,
+      volume24Hr: volume24Hr,
+      dayHigh: dayHigh,
+      dayLow: dayLow
     }
     passSelectedCoin(coin)
   }
