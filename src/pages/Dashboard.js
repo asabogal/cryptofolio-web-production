@@ -7,7 +7,8 @@ class Dashboard extends Component {
     super(props);
     this.state = { 
       user: '',
-      selectedCoin: ''
+      selectedCoin: '',
+      active: false
      };
   }
 
@@ -19,7 +20,8 @@ class Dashboard extends Component {
 
   setSelectedCoin = (coin) => {
     this.setState({
-      selectedCoin: coin
+      selectedCoin: coin,
+      active: true
     })
   }
 
@@ -28,9 +30,11 @@ class Dashboard extends Component {
       <div>
         <h1>DASHBOARD</h1>  
         {
-          this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin}/> : null
+          this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin} isActive={this.state.active}/> : null
         }
-        <InfoContainer selectedCoin={this.state.selectedCoin}/>
+        {
+          this.state.active ? <InfoContainer selectedCoin={this.state.selectedCoin}/> : null
+        }
       </div>
     );
   }
