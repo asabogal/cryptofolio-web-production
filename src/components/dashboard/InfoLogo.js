@@ -16,9 +16,12 @@ export default InfoLogo;
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 3fr;
   justify-items: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #212542;
-  padding-bottom: 50px;
+  div {
+    justify-self: center;
+    align-self: flex-start;
+  }
 `;

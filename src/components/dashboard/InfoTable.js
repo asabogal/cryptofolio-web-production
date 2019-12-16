@@ -40,11 +40,13 @@ const Table = styled.table`
 const TableData = styled.td`
 font-size: inherit;
 height: 100%;
-background-color: #272841;
+background-color: #212542 ;
 text-align: center;
 vertical-align: middle;
+padding-bottom: 20px;
 `;
 
 const TableDataHead = styled(TableData)`
-background-color: #212542;
+background-color: #272841;
+padding-bottom: 0px;
 `;
