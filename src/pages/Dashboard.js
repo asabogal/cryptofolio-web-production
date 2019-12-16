@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserCoins from '../components/dashboard/UserCoins'
-import InfoTable from '../components/dashboard/InfoTable';
+import InfoContainer from '../components/dashboard/InfoContainer';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Dashboard extends Component {
         {
           this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin}/> : null
         }
-        <InfoTable selectedCoin={this.state.selectedCoin}/>
+        <InfoContainer selectedCoin={this.state.selectedCoin}/>
       </div>
     );
   }
