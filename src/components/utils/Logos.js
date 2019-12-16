@@ -6,11 +6,11 @@ export const Logo = (props) => {
   if (props.link) {
     return (
       <Link to='/'>
-        <LogoContainer logo={props.logo} width={props.width} height={props.height}/>
+        <LogoContainer logo={props.logo} width={props.width} height={props.height} opacity={props.opacity}/>
       </Link>
       )
   } else {
-    return <LogoContainer logo={props.logo} width={props.width} height={props.height}/>
+    return <LogoContainer logo={props.logo} width={props.width} height={props.height} opacity={props.opacity}/>
   }
 
 }
