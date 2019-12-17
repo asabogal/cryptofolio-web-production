@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserCoins from '../components/dashboard/UserCoins'
-import InfoContainer from '../components/dashboard/InfoContainer';
+import InfoContainer from '../components/dashboard/InfoContainer'
+import {PageWrapper} from './PageWrapper'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -27,14 +28,14 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <PageWrapper>
         {
           this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin} isActive={this.state.active}/> : null
         }
         {
           this.state.active ? <InfoContainer selectedCoin={this.state.selectedCoin}/> : null
         }
-      </div>
+      </PageWrapper>
     );
   }
 }
