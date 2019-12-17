@@ -43,10 +43,10 @@ height: 100%;
 background-color: #212542 ;
 text-align: center;
 vertical-align: middle;
-padding-bottom: 20px;
+padding-bottom: 10px;
 `;
 
 const TableDataHead = styled(TableData)`
-background-color: #272841;
+padding-top: 10px;
 padding-bottom: 0px;
 `;

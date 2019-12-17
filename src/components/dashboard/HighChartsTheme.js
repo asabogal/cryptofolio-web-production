@@ -1,20 +1,11 @@
 export default {
-  colors: ['#DDDF0D', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee',
+  colors: ['#2a8ba8', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee',
       '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
   chart: {
-      backgroundColor: {
-          linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-          stops: [
-              [0, 'rgb(48, 48, 96)'],
-              [1, 'rgb(0, 0, 0)']
-          ]
-      },
-      borderColor: '#000000',
-      borderWidth: 2,
+      backgroundColor: '#212542',
+      borderWidth: 0,
       className: 'dark-container',
-      plotBackgroundColor: 'rgba(255, 255, 255, .1)',
-      plotBorderColor: '#CCCCCC',
-      plotBorderWidth: 1
+      plotBackgroundColor: '#212542'
   },
   title: {
       style: {
@@ -30,13 +21,13 @@ export default {
   },
   xAxis: {
       gridLineColor: '#333333',
-      gridLineWidth: 1,
+      gridLineWidth: 0,
       labels: {
           style: {
-              color: '#A0A0A0'
+              color: 'white'
           }
       },
-      lineColor: '#A0A0A0',
+      lineColor: 'white',
       tickColor: '#A0A0A0',
       title: {
           style: {
@@ -49,10 +40,10 @@ export default {
       }
   },
   yAxis: {
-      gridLineColor: '#333333',
+      gridLineColor: null,
       labels: {
           style: {
-              color: '#A0A0A0'
+              color: 'white'
           }
       },
       lineColor: '#A0A0A0',
@@ -95,7 +86,7 @@ export default {
       },
       scatter: {
           marker: {
-              lineColor: '#333'
+              lineColor: '#2a8ba8;'
           }
       },
       candlestick: {

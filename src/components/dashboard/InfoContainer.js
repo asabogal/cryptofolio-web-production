@@ -14,12 +14,12 @@ class InfoContainer extends Component {
   render() {
     return (
       <div>
-        <InfoTable style={{margin: '20px'}} selectedCoin={this.props.selectedCoin}/>
+        
         <Container>
           <InfoLogo selectedCoin={this.props.selectedCoin}/>
           <Chart/>      
         </Container>
-
+        <InfoTable style={{margin: '20px'}} selectedCoin={this.props.selectedCoin}/>
       </div>
     );
   }
@@ -30,5 +30,6 @@ export default InfoContainer;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin-bottom: 50px;
+  grid-gap: 5px;
+  margin-bottom: 5px;
 `;

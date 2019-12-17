@@ -7,7 +7,7 @@ const InfoLogo = (props) => {
   return (
     <Container>
       <h2>{props.selectedCoin.symbol}</h2>
-      <Logo logo={sourceUrl} height='250px' width='250px' opacity='.8'/>
+      <Logo logo={sourceUrl} height='250px' width='250px' opacity='.9'/>
     </Container>
   );
 };
