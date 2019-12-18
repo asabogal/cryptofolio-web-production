@@ -5,7 +5,8 @@ export default {
       backgroundColor: '#212542',
       borderWidth: 0,
       className: 'dark-container',
-      plotBackgroundColor: '#212542'
+      plotBackgroundColor: '#212542',
+      height: 350
   },
   xAxis: {
       gridLineColor: '#333333',

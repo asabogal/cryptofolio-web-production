@@ -12,12 +12,11 @@ class InfoContainer extends Component {
      };
   }
   render() {
-    console.log('historical data is:', this.props.chartData)
     return (
       <div>
         <Container>
           <InfoLogo selectedCoin={this.props.selectedCoin}/>
-          <Chart chartData={this.props.chartData}/>      
+          <Chart chartData={this.props.chartData} changeChartRange={this.props.changeChartRange}/>      
         </Container>
         <InfoTable style={{margin: '20px'}} selectedCoin={this.props.selectedCoin}/>
       </div>
@@ -31,5 +30,5 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 5px;
-  margin-bottom: 5px;
+  margin: 50px 0px 5px 0px;
 `;
