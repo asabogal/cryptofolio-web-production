@@ -24,6 +24,29 @@ class CoinsController < ApplicationController
     }
   end
 
+  def get_historical_data
+    symbol = params[:symbol]
+    period = params[:period]
+    market = 'USD'
+    api_key = ENV['ALPHAVANTAGE_KEY']
+    response = CoinService.get_historical_data(symbol, period, market, api_key)
+    response_data = response[response.keys.last].first(10)
+
+    data = response_data.map do |key, value|
+     time = Time.parse(key).to_i * 1000
+     price = value["4b. close (USD)"].to_f
+     [time, price]
+    end.sort
+    historical = [
+      {
+        name: symbol,
+        data: data
+      }
+    ]
+
+    render json: historical
+  end
+
   def show
     @coin = CoinService.find_coin(params[:slug])
     if @coin['Response']
