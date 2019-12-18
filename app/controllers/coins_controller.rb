@@ -10,15 +10,18 @@ class CoinsController < ApplicationController
       obj['symbol'] = dat['CoinInfo']['Name']
       obj['name'] = dat['CoinInfo']['FullName']
       obj['imageUrl'] = "https://www.cryptocompare.com#{dat['CoinInfo']['ImageUrl']}"
-      obj['price'] = dat['DISPLAY']['USD']['PRICE']
-      obj['openDay'] = dat['DISPLAY']['USD']['OPENDAY']
-      obj['changeDay'] = dat['DISPLAY']['USD']['CHANGEDAY']
-      obj['changePctDay'] = dat['DISPLAY']['USD']['CHANGEPCTDAY']
-      obj['volumeDay'] = dat['DISPLAY']['USD']['VOLUMEDAY']
-      obj['supply'] = dat['DISPLAY']['USD']['SUPPLY']
-      obj['marketCap'] = dat['DISPLAY']['USD']['MKTCAP']
+      if dat['DISPLAY']
+        obj['price'] = dat['DISPLAY']['USD']['PRICE']
+        obj['openDay'] = dat['DISPLAY']['USD']['OPENDAY']
+        obj['changeDay'] = dat['DISPLAY']['USD']['CHANGEDAY']
+        obj['changePctDay'] = dat['DISPLAY']['USD']['CHANGEPCTDAY']
+        obj['volumeDay'] = dat['DISPLAY']['USD']['VOLUMEDAY']
+        obj['supply'] = dat['DISPLAY']['USD']['SUPPLY']
+        obj['marketCap'] = dat['DISPLAY']['USD']['MKTCAP']
+      end
       data.push(obj)
     end
+    
     render json: {
       coins: data
     }
