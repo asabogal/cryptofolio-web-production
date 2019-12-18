@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import ReactHighCharts from 'react-highcharts'
 import highchartsConfig from './HighChartsConfig'
 import highchartsTheme from './HighChartsTheme'
-import HighChartsTheme from './HighChartsTheme';
 
-ReactHighCharts.Highcharts.setOptions(HighChartsTheme);
+ReactHighCharts.Highcharts.setOptions(highchartsTheme);
 
 class Chart extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class Chart extends Component {
   render() {
     return (
       <div>
-        <ReactHighCharts config={highchartsConfig()}/>
+        <ReactHighCharts config={highchartsConfig(this.props.historicalData)}/>
       </div>
     );
   }

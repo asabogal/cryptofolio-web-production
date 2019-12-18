@@ -12,12 +12,12 @@ class InfoContainer extends Component {
      };
   }
   render() {
+    console.log('historical data is:', this.props.historicalData)
     return (
       <div>
-        
         <Container>
           <InfoLogo selectedCoin={this.props.selectedCoin}/>
-          <Chart/>      
+          <Chart historicalData={this.props.historicalData}/>      
         </Container>
         <InfoTable style={{margin: '20px'}} selectedCoin={this.props.selectedCoin}/>
       </div>

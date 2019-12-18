@@ -7,18 +7,6 @@ export default {
       className: 'dark-container',
       plotBackgroundColor: '#212542'
   },
-  title: {
-      style: {
-          color: '#C0C0C0',
-          font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
-      }
-  },
-  subtitle: {
-      style: {
-          color: '#666666',
-          font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
-      }
-  },
   xAxis: {
       gridLineColor: '#333333',
       gridLineWidth: 0,
@@ -48,7 +36,7 @@ export default {
       },
       lineColor: '#A0A0A0',
       minorTickInterval: null,
-      tickColor: '#A0A0A0',
+      tickColor: 'white',
       tickWidth: 1,
       title: {
           style: {
@@ -106,9 +94,7 @@ export default {
       }
   },
   credits: {
-      style: {
-          color: '#666'
-      }
+      enabled: false
   },
   labels: {
       style: {
