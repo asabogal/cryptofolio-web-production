@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import Signup from './components/registrations/Signup'
 import Login from './components/registrations/Login'
+import NotLoggedIn from './pages/NotLoggedIn'
 
 class App extends Component {
   constructor(props) {
@@ -62,18 +63,24 @@ class App extends Component {
                 <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
+              {this.state.isLoggedIn ? 
               <Route 
                 exact path='/dashboard' 
                 component={props => (
                 <Dashboard {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
+              : <Route exact path='/dashboard' component={NotLoggedIn}/>
+                }
+              {this.state.isLoggedIn ? 
              <Route 
                 exact path='/settings' 
                 render={props => (
                 <Settings {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
+              : <Route exact path='/settings' component={NotLoggedIn}/>
+            }
               <Route 
                 exact path='/signup' 
                 render={props => (

@@ -23,15 +23,13 @@ class Header extends Component {
         <div>
           <Logo link logo={logo} width='60px' height='60px'/>
         </div>
-
-        <ul>
-          <Link to='/dashboard'><li>Dashboard</li></Link>
-          <Link to='/settings'><li>Settings</li></Link>
           {
-            this.props.loggedInStatus ? <Link to='/' onClick={this.handleLogout}><li>Log Out</li></Link> : null
+            this.props.loggedInStatus ? <ul>
+              <Link to='/dashboard'><li>Dashboard</li></Link>
+              <Link to='/settings'><li>Settings</li></Link>
+              <Link to='/' onClick={this.handleLogout}><li>Log Out</li></Link> 
+            </ul>  : null
           }
-          
-        </ul>
       </Container>
     );
   }
