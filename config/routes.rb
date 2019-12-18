@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/users/:id/user_coins', to: 'users#user_coins'
 
   resources :coins, only: [:index, :show, :create, :destroy ], param: :slug
+  get '/history', to: 'coins#get_historical_data'
 end
