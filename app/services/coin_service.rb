@@ -27,4 +27,13 @@ class CoinService
     @body
   end
 
+  def self.get_historical_data(symbol, period, market, api_key)
+    url = "https://www.alphavantage.co/query?function=#{period}&symbol=#{symbol}&market=#{market}&apikey=#{api_key}"
+    resp = Faraday.get url do |req|
+    end
+
+    @body = JSON.parse(resp.body)
+    @body
+  end
+
 end
