@@ -32,19 +32,25 @@ class CoinsController < ApplicationController
     response = CoinService.get_historical_data(symbol, period, market, api_key)
     response_data = response[response.keys.last].first(10)
 
-    data = response_data.map do |key, value|
-     time = Time.parse(key).to_i * 1000
-     price = value["4b. close (USD)"].to_f
-     [time, price]
-    end.sort
-    historical = [
-      {
-        name: symbol,
-        data: data
-      }
-    ]
+    if !response_data.is_a? String
+      data = response_data.map do |key, value|
+      time = Time.parse(key).to_i * 1000
+      price = value["4b. close (USD)"].to_f
+      [time, price]
+      end.sort
+      historical = [
+        {
+          name: symbol,
+          data: data
+        }
+      ]
 
-    render json: historical
+      render json: historical
+    else
+      render json: {
+        errors: 'max 5 calls per minute please'
+      }
+    end
   end
 
   def show
