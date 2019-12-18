@@ -10,13 +10,30 @@ class Chart extends Component {
     super(props);
     this.state = {  };
   }
+
+  renderChart = () => {
+    if (!this.props.chartData) {
+      return <div>Loading...</div>
+    } else if (typeof this.props.chartData === 'string') {
+      return <div style={errorStyle}>{this.props.chartData}</div>
+    } else {
+      return <ReactHighCharts config={highchartsConfig(this.props.chartData)}/>
+    }
+  }
   render() {
     return (
       <div>
-        <ReactHighCharts config={highchartsConfig(this.props.historicalData)}/>
+        {
+          this.renderChart()
+        }
       </div>
     );
   }
 }
 
 export default Chart;
+
+const errorStyle = {
+  color: 'red',
+  textAlign: 'center',
+}

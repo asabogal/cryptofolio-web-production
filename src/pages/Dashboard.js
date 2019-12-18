@@ -11,7 +11,8 @@ class Dashboard extends Component {
       user: '',
       selectedCoin: '',
       active: false,
-      historicalData: ''
+      historicalData: '',
+      errors: ''
      };
   }
 
@@ -24,7 +25,8 @@ class Dashboard extends Component {
   setSelectedCoin = (coin) => {
     this.setState({
       selectedCoin: coin,
-      active: true
+      active: true,
+      historicalData: null
     })
     this.getHistoricalData(coin.symbol)
   }
@@ -36,11 +38,22 @@ class Dashboard extends Component {
       period: period
     }
     axios.get(url, {params})
+
     .then(response => {
-      this.setState({
-        historicalData: response.data
-      })
+      if (response.data.errors) {
+        this.setState({
+          errors: response.data.errors
+        })
+      } else {
+        this.setState({
+          historicalData: response.data
+        })
+      }
     })
+  }
+
+  chartData = () => {
+    return this.state.errors ? this.state.errors : this.state.historicalData
   }
 
   render() {
@@ -50,7 +63,7 @@ class Dashboard extends Component {
           this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin} isActive={this.state.active}/> : null
         }
         {
-          this.state.active ? <InfoContainer selectedCoin={this.state.selectedCoin} historicalData={this.state.historicalData}/> : null
+          this.state.active ? <InfoContainer selectedCoin={this.state.selectedCoin} chartData={this.chartData()}/> : null
         }
       </PageWrapper>
     );
