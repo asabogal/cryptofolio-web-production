@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const Info = (props) => {
-  console.log(props)
   return (
     <Container loggedIn={props.loggedIn}>
       <div>
