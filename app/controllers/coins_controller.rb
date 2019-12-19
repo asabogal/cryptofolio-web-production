@@ -56,6 +56,33 @@ class CoinsController < ApplicationController
     end
   end
 
+  def get_demo_coins
+      symbols = "BTC,ETH"
+      @coins = CoinService.get_demo_coins(symbols)
+      response = @coins['DISPLAY']
+      data = []
+
+      response.each_with_index do |(key, value), index|
+        obj = {}
+        obj['symbol'] = key
+        obj['imageUrl'] = value['USD']['IMAGEURL']
+        obj['price'] = value['USD']['PRICE']
+        obj['changeDay'] = value['USD']['CHANGEDAY']
+        obj['changePct'] = value['USD']['CHANGEPCTDAY']
+        obj['mrktCap'] = value['USD']['MKTCAP']
+        obj['supply'] = value['USD']['SUPPLY']
+        obj['volume24Hr'] = value['USD']['VOLUME24HOURTO']
+        obj['dayHigh'] = value['USD']['HIGHDAY']
+        obj['dayLow'] = value['USD']['LOWDAY']
+        data.push(obj)
+      end
+  
+      render json: {
+        status: 200,
+        coins: data
+      }
+  end
+
   def show
     @coin = CoinService.find_coin(params[:slug])
     if @coin['Response']
