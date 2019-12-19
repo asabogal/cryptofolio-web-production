@@ -73,7 +73,7 @@ class Dashboard extends Component {
     return (
       <PageWrapper>
         {
-          this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin} isActive={this.state.active}/> : null
+          this.state.user ? <UserCoins user={this.state.user} setSelectedCoin={this.setSelectedCoin} isActive={this.state.active} history={this.props.history}/> : null
         }
         {
           this.state.active ? <InfoContainer selectedCoin={this.state.selectedCoin} chartData={this.chartData()} changeChartRange={this.changeChartRange}/> : null
