@@ -8,6 +8,7 @@ import Settings from './pages/Settings'
 import Signup from './components/registrations/Signup'
 import Login from './components/registrations/Login'
 import NotLoggedIn from './pages/NotLoggedIn'
+import RedirectPage from './pages/RedirectPage'
 
 class App extends Component {
   constructor(props) {
@@ -91,6 +92,11 @@ class App extends Component {
                 exact path='/login' 
                 render={props => (
                 <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+                )}
+              />
+              <Route 
+                render={props => (
+                <RedirectPage {...props}/>
                 )}
               />
             </Switch>
