@@ -7,9 +7,9 @@ import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import Signup from './components/registrations/Signup'
 import Login from './components/registrations/Login'
-import RedirectPage from './pages/RedirectPage'
 import DemoDashboard from './pages/DemoDashboard'
 import ProtectedRoute from './ProtectedRoute'
+import RedirectRoute from './RedirectRoute'
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class App extends Component {
               <Route 
                 exact path='/' 
                 render={props => (
-                <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+                <Home {...props} handleLogout={this.handleLogout} loggedIn={this.state.isLoggedIn}/>
                 )}
               />
 
@@ -101,10 +101,10 @@ class App extends Component {
                 )}
               />
 
-              <Route 
-                render={props => (
-                <RedirectPage {...props}/>
-                )}
+              <RedirectRoute 
+                path='*'
+                component={Dashboard}
+                loggedIn={this.state.isLoggedIn}
               />
             </Switch>
           </Layout>
