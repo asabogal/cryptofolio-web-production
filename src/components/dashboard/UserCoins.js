@@ -10,7 +10,8 @@ class UserCoins extends Component {
     this.state = { 
       userCoins: '',
       loading: true,
-      activeCoin: ''
+      activeCoin: '',
+      hasCoins: true
      };
   }
 
@@ -34,6 +35,11 @@ class UserCoins extends Component {
         loading: false
       })
     })
+    .catch(errors => this.redirect())
+  }
+
+  redirect = () => {
+    this.props.history.push('/settings')
   }
 
   passSelectedCoin = (coin) => {
