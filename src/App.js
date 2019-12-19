@@ -9,6 +9,7 @@ import Signup from './components/registrations/Signup'
 import Login from './components/registrations/Login'
 import NotLoggedIn from './pages/NotLoggedIn'
 import RedirectPage from './pages/RedirectPage'
+import DemoDashboard from './pages/DemoDashboard'
 
 class App extends Component {
   constructor(props) {
@@ -73,6 +74,12 @@ class App extends Component {
               />
               : <Route exact path='/dashboard' component={NotLoggedIn}/>
                 }
+              <Route 
+                exact path='/demo' 
+                render={props => (
+                <DemoDashboard {...props}/>
+                )}
+              />
               {this.state.isLoggedIn ? 
              <Route 
                 exact path='/settings' 
