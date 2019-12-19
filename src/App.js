@@ -7,9 +7,9 @@ import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import Signup from './components/registrations/Signup'
 import Login from './components/registrations/Login'
-import NotLoggedIn from './pages/NotLoggedIn'
 import RedirectPage from './pages/RedirectPage'
 import DemoDashboard from './pages/DemoDashboard'
+import ProtectedRoute from './ProtectedRoute'
 
 class App extends Component {
   constructor(props) {
@@ -65,42 +65,42 @@ class App extends Component {
                 <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
-              {this.state.isLoggedIn ? 
-              <Route 
+
+              <ProtectedRoute 
                 exact path='/dashboard' 
-                component={props => (
-                <Dashboard {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>
-                )}
+                component = {Dashboard}
+                user={this.state.user} 
+                loggedIn={this.state.isLoggedIn}
               />
-              : <Route exact path='/dashboard' component={NotLoggedIn}/>
-                }
+
               <Route 
                 exact path='/demo' 
                 render={props => (
                 <DemoDashboard {...props}/>
                 )}
               />
-              {this.state.isLoggedIn ? 
-             <Route 
+
+             <ProtectedRoute 
                 exact path='/settings' 
-                render={props => (
-                <Settings {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>
-                )}
+                component = {Settings}
+                user={this.state.user} 
+                loggedIn={this.state.isLoggedIn}
               />
-              : <Route exact path='/settings' component={NotLoggedIn}/>
-            }
+             
               <Route 
                 exact path='/signup' 
                 render={props => (
                 <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
+
               <Route 
                 exact path='/login' 
                 render={props => (
                 <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
                 )}
               />
+
               <Route 
                 render={props => (
                 <RedirectPage {...props}/>
