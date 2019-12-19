@@ -10,6 +10,7 @@ import Login from './components/registrations/Login'
 import DemoDashboard from './pages/DemoDashboard'
 import ProtectedRoute from './ProtectedRoute'
 import RedirectRoute from './RedirectRoute'
+import RegistrationsRoute from './RegistrationsRoute'
 
 class App extends Component {
   constructor(props) {
@@ -87,23 +88,22 @@ class App extends Component {
                 loggedIn={this.state.isLoggedIn}
               />
              
-              <Route 
+              <RegistrationsRoute 
                 exact path='/signup' 
-                render={props => (
-                <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
+                component={Signup}
+                handleLogin={this.handleLogin} 
+                loggedIn={this.state.isLoggedIn}/>
               />
 
-              <Route 
+              <RegistrationsRoute 
                 exact path='/login' 
-                render={props => (
-                <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
+                component={Login}
+                handleLogin={this.handleLogin} 
+                loggedIn={this.state.isLoggedIn}
               />
 
               <RedirectRoute 
                 path='*'
-                component={Dashboard}
                 loggedIn={this.state.isLoggedIn}
               />
             </Switch>
