@@ -3,9 +3,10 @@ import {Button} from '../utils/Buttons'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-const Info = () => {
+const Info = (props) => {
+  console.log(props)
   return (
-    <Container>
+    <Container loggedIn={props.loggedIn}>
       <div>
         <h1>CRYPTOCURRENCY PORTFOLIO</h1>
         <h3>Keep track of your favorite Coins </h3>
@@ -15,7 +16,8 @@ const Info = () => {
         <br></br>
       </div>
       
-      <div>
+      {!props.loggedIn ? 
+        <div>
         <h1>Get Started</h1>
         <Link to= '/signup'> 
           <Button>Sign Up</Button>
@@ -23,8 +25,11 @@ const Info = () => {
          <Link to='/login'>
           <Button>Log In</Button>
          </Link>
-      </div>    
-      
+         </div> 
+        : 
+        null
+      } 
+        
       <div>
         <Link to='/demo'>
           <Button 
@@ -46,7 +51,7 @@ export default Info;
 //Styled
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: ${props => props.loggedIn ? '1fr' : '2fr 1fr 1fr'};
   p {
     padding-left: 20px;
   }

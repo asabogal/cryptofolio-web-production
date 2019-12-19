@@ -10,7 +10,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Content/>
+        <Content loggedIn={this.props.loggedIn}/>
       </div>
     );
   }

@@ -4,10 +4,10 @@ import logo from '../../images/crypto-vault.png'
 import {Logo} from '../utils/Logos'
 import styled from 'styled-components'
 
-const Content = () => {
+const Content = (props) => {
   return (
     <Container>
-      <Info/>
+      <Info loggedIn={props.loggedIn}/>
       <Logo logo={logo} height='400px' width='400px'/>
     </Container>
   );
