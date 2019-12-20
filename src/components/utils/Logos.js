@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export const Logo = (props) => {
   if (props.link) {
     return (
-      <Link to='/'>
+      <Link to={props.link}>
         <LogoContainer logo={props.logo} width={props.width} height={props.height} opacity={props.opacity}/>
       </Link>
       )
