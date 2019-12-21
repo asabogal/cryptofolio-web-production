@@ -21,7 +21,7 @@ class UserCoins extends Component {
 
   getUserCoins = (user) => {
     const userId = user.id
-    const url = `http://localhost:3001/users/${userId}/user_coins`
+    const url = `/users/${userId}/user_coins`
     const config = {
       headers: {
         'Accept': 'application/json',

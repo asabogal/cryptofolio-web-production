@@ -38,7 +38,7 @@ class Dashboard extends Component {
       weeks: "DIGITAL_CURRENCY_WEEKLY",
       months: "DIGITAL_CURRENCY_MONTHLY"
     }
-    const url = "http://localhost:3001/history"
+    const url = "/history"
     const params = {
       symbol: symbol,
       period: ranges[period]

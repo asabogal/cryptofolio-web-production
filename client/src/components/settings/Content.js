@@ -25,7 +25,7 @@ class Content extends Component {
   }
 
   getCoin = (symbol) => {
-    let url = `http://localhost:3001/coins/${symbol}`
+    let url = `/coins/${symbol}`
     const config = {
       headers: {
         'Accept': 'application/json',
@@ -66,7 +66,7 @@ class Content extends Component {
   }
 
   getAllCoins = () => {
-    let url = 'http://localhost:3001/coins/'
+    let url = '/coins'
     const config = {
       headers: {
         'Accept': 'application/json',

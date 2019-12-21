@@ -26,7 +26,7 @@ class DemoDashboard extends Component {
   }
 
   getDemoCoins = () => {
-    const url = `http://localhost:3001/democoins`
+    const url = `/democoins`
     const config = {
       headers: {
         'Accept': 'application/json',
@@ -90,7 +90,7 @@ class DemoDashboard extends Component {
       weeks: "DIGITAL_CURRENCY_WEEKLY",
       months: "DIGITAL_CURRENCY_MONTHLY"
     }
-    const url = "http://localhost:3001/history"
+    const url = "/history"
     const params = {
       symbol: symbol,
       period: ranges[period]
