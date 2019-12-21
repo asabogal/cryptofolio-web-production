@@ -12,7 +12,7 @@ class Header extends Component {
   }
 
   handleLogout = () => {
-    axios.delete('http://localhost:3001/logout', {withCredentials: true})
+    axios.delete('/logout', {withCredentials: true})
     .then(response => this.props.handleLogout())
     .catch(error => console.log(error))
   }

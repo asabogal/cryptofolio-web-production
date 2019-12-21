@@ -133,7 +133,7 @@ class Content extends Component {
   saveCoinsToApi = () => {
     const user = this.props.user
     const coins = this.state.userCoins
-    const url = 'http://localhost:3001/coins/'
+    const url = '/coins'
     const payload = {
       user: user,
       coin: coins
