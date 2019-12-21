@@ -40,6 +40,8 @@ gem 'faraday'
 
 gem 'rb-readline'
 
+gem "rack", ">= 2.0.8"
+
 # gem 'active_model_serializers'
 
 # Use ActiveStorage variant
