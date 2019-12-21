@@ -1,24 +1,19 @@
-# README
+# CRYPTOFOLIO WEB APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Live app at: cryptofolio-web-app.herokuapp.com
 
-Things you may want to cover:
+A cryptocurrency portfolio and tracker web application. User receive current and historical cryptocurrency data on their favorite coins. React front-end and Rails back-end API.
 
-* Ruby version
+* React 16.10.1
 
-* System dependencies
+* Ruby 2.5.1
 
-* Configuration
+* Rails 5.2.4.1
 
-* Database creation
+* PostgreSql DB
 
-* Database initialization
+* Styled Components
 
-* How to run the test suite
+* Axios and Faraday for HTTP request
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Heroku deployed
