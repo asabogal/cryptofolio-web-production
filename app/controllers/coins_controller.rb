@@ -34,7 +34,7 @@ class CoinsController < ApplicationController
     api_key = ENV['ALPHAVANTAGE_KEY']
     response = CoinService.get_historical_data(symbol, period, market, api_key)
     response_data = response[response.keys.last].first(10)
-
+    
     if !response_data.is_a? String
       data = response_data.map do |key, value|
       time = Time.parse(key).to_i * 1000
@@ -47,12 +47,17 @@ class CoinsController < ApplicationController
           data: data
         }
       ]
-
       render json: historical
-    else
+
+    elsif response.key?("Error Message")
       render json: {
-        errors: 'max 5 calls per minute please'
+        errors: 'no recent historical data available'
       }
+
+    else 
+      render json: {
+      errors: 'max 5 calls per minute please'
+    }
     end
   end
 
