@@ -38,6 +38,8 @@ gem 'pry', '~> 0.12.2'
 
 gem 'faraday'
 
+gem 'rb-readline'
+
 # gem 'active_model_serializers'
 
 # Use ActiveStorage variant
