@@ -24,10 +24,6 @@ class App extends Component {
     this.loginStatus()
   }
 
-  componentWillMount() {
-    this.loginStatus()
-  }
-
   loginStatus = () => {
     axios.get('/logged_in', {withCredentials: true})
     .then(response => {
