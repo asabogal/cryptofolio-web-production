@@ -1,5 +1,19 @@
 {
-  "name": "cryptofolio-api",
-  "private": true,
-  "dependencies": {}
+  "name": "cryptofolio-web-production",
+  "version": "1.0.0",
+  "description": "cryptocurrency portfolio and track web app",
+  "main": "index.js",
+  "repository": "https://github.com/asabogal/cryptofolio-web-production.git",
+  "author": "asabogal <asabogal.git@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "cd client && yarn install && yarn build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+  },
+  "engines": {
+    "yarn": "1.21.1",
+    "npm": "6.11.3",
+    "node": "12.11.1"
+  }
 }
