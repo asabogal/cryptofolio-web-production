@@ -17,3 +17,5 @@ A cryptocurrency portfolio and tracker web application. User receive current and
 * Axios and Faraday for HTTP request
 
 * Heroku deployed
+
+* * App design inspired by react.school_'s React Data Visualization Project
