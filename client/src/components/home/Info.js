@@ -7,7 +7,7 @@ const Info = (props) => {
   return (
     <Container loggedIn={props.loggedIn}>
       <div>
-        <h1>CRYPTOCURRENCY PORTFOLIO</h1>
+        <h1>CRYPTOFOLIO</h1>
         <h3>Keep track of your favorite Coins </h3>
         <p>Live, 24/7 Data</p>
         <p>User Friendly Interface</p>
