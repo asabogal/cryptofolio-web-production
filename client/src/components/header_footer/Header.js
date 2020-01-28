@@ -66,4 +66,8 @@ const Container = styled.div`
     text-decoration: none;
     padding-left: 20px;
   }
+  @media (max-width: 420px) {
+    justify-content: left;
+    margin: 20px 8px;
+  }
 `;

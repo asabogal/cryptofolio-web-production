@@ -34,16 +34,39 @@ export default function(historicalData){
   responsive: {
       rules: [{
           condition: {
-              maxWidth: 500
+              maxWidth: 400
           },
           chartOptions: {
               legend: {
                   layout: 'horizontal',
                   align: 'center',
                   verticalAlign: 'bottom'
+              },
+              chart: {
+                height: 200
+              },
+              yAxis: {
+                title: {
+                  text: ''
+                }
               }
           }
-      }]
+      },
+    {
+      condition: {
+        maxWidth: 500
+    },
+    chartOptions: {
+        legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+        },
+        chart: {
+          height: 250
+        }
+    }
+    }]
   }
   }
 }

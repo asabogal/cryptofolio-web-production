@@ -31,4 +31,10 @@ const Container = styled.div`
   grid-template-columns: 1fr 2fr;
   grid-gap: 5px;
   margin: 50px 0px 5px 0px;
+  @media (max-width: 1200px) {
+    grid-template-columns: auto;
+   .symbol-logo-container {
+     display: none;
+   }
+  }
 `;

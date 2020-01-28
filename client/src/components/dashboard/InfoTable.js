@@ -3,50 +3,52 @@ import styled from 'styled-components'
 
 const InfoTable = (props) => {
  
-  const {changeDay, supply, volume24Hr, dayHigh, dayLow} = props.selectedCoin
+  const {changeDay, volume24Hr, dayHigh, dayLow} = props.selectedCoin
   return (
-    <Table>
-      <tbody>
-        <tr>
-          <TableDataHead>24Hr Volume</TableDataHead>
-          <TableDataHead>Supply</TableDataHead>
-          <TableDataHead>Day High</TableDataHead>
-          <TableDataHead>Day Low</TableDataHead>
-          <TableDataHead>Change Day</TableDataHead>
-
-        </tr>
-        <tr>
-          <TableData>{volume24Hr}</TableData>
-          <TableData>{supply}</TableData>
-          <TableData>{dayHigh}</TableData>
-          <TableData>{dayLow}</TableData>
-          <TableData>{changeDay}</TableData>
-        </tr>
-      </tbody>
-    </Table>
+    <Container>
+      <DataContainer>
+        <h5>24hr Volume</h5>
+        <p>{volume24Hr}</p>
+      </DataContainer>
+      {/* <DataContainer>
+        <h5>Supply</h5>
+        <p>{supply}</p>
+      </DataContainer> */}
+      <DataContainer>
+        <h5>Change Day</h5>
+        <p>{changeDay}</p>
+      </DataContainer>
+      <DataContainer>
+        <h5>Day's High</h5>
+        <p>{dayHigh}</p>
+      </DataContainer>
+      <DataContainer>
+        <h5>Day's Low</h5>
+        <p>{dayLow}</p>
+      </DataContainer>
+    </Container>
   );
 }
 
 export default InfoTable;
 
-const Table = styled.table`
-  width: 100%;
-  margin: 0;
-  border-spacing: 0;
-  table-layout: fixed;
-  border-collapse: collapse;
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 5px;
 `;
 
-const TableData = styled.td`
-font-size: inherit;
-height: 100%;
-background-color: #212542 ;
-text-align: center;
-vertical-align: middle;
-padding-bottom: 10px;
-`;
-
-const TableDataHead = styled(TableData)`
-padding-top: 10px;
-padding-bottom: 0px;
+const DataContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #212542;
+  p, h5 {
+    font-size: 15px;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
 `;
